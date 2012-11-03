@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8FB5EF96163C1E7500BE1422 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF95163C1E7500BE1422 /* UIKit.framework */; };
+		8FB5EF98163C1E7500BE1422 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF97163C1E7500BE1422 /* Foundation.framework */; };
+		8FB5EF9A163C1E7500BE1422 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF99163C1E7500BE1422 /* CoreGraphics.framework */; };
+		8FB5EFA0163C1E7500BE1422 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EF9E163C1E7500BE1422 /* InfoPlist.strings */; };
+		8FB5EFA2163C1E7500BE1422 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFA1163C1E7500BE1422 /* main.m */; };
+		8FB5EFA6163C1E7600BE1422 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFA5163C1E7600BE1422 /* AppDelegate.m */; };
+		8FB5EFA8163C1E7600BE1422 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EFA7163C1E7600BE1422 /* Default.png */; };
+		8FB5EFAA163C1E7600BE1422 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EFA9163C1E7600BE1422 /* Default@2x.png */; };
+		8FB5EFAC163C1E7600BE1422 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EFAB163C1E7600BE1422 /* Default-568h@2x.png */; };
+		8FB5EFB5163C1EC000BE1422 /* LedgerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFB3163C1EC000BE1422 /* LedgerPageViewController.m */; };
+		8FB5EFB6163C1EC000BE1422 /* LedgerPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EFB4163C1EC000BE1422 /* LedgerPageViewController.xib */; };
+		8FB5EFBA163C1ED000BE1422 /* LedgerContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFB8163C1ED000BE1422 /* LedgerContentViewController.m */; };
+		8FB5EFBB163C1ED000BE1422 /* LedgerContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5EFB9163C1ED000BE1422 /* LedgerContentViewController.xib */; };
+		8FB5EFCE163DCF1400BE1422 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */; };
+		8FB5EFCF163DCF5900BE1422 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */; };
+		8FB5EFD5163E0B8800BE1422 /* LedgerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8FB5EF91163C1E7500BE1422 /* LedgerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FB5EF95163C1E7500BE1422 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8FB5EF97163C1E7500BE1422 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8FB5EF99163C1E7500BE1422 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8FB5EF9D163C1E7500BE1422 /* LedgerView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LedgerView-Info.plist"; sourceTree = "<group>"; };
+		8FB5EF9F163C1E7500BE1422 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8FB5EFA1163C1E7500BE1422 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8FB5EFA3163C1E7600BE1422 /* LedgerView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LedgerView-Prefix.pch"; sourceTree = "<group>"; };
+		8FB5EFA4163C1E7600BE1422 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8FB5EFA5163C1E7600BE1422 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8FB5EFA7163C1E7600BE1422 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8FB5EFA9163C1E7600BE1422 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8FB5EFAB163C1E7600BE1422 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8FB5EFB2163C1EC000BE1422 /* LedgerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerPageViewController.h; sourceTree = "<group>"; };
+		8FB5EFB3163C1EC000BE1422 /* LedgerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerPageViewController.m; sourceTree = "<group>"; };
+		8FB5EFB4163C1EC000BE1422 /* LedgerPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LedgerPageViewController.xib; sourceTree = "<group>"; };
+		8FB5EFB7163C1ED000BE1422 /* LedgerContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerContentViewController.h; sourceTree = "<group>"; };
+		8FB5EFB8163C1ED000BE1422 /* LedgerContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerContentViewController.m; sourceTree = "<group>"; };
+		8FB5EFB9163C1ED000BE1422 /* LedgerContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LedgerContentViewController.xib; sourceTree = "<group>"; };
+		8FB5EFC8163DCA5D00BE1422 /* LedgerDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LedgerDB.h; sourceTree = "<group>"; };
+		8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LedgerDB.m; sourceTree = "<group>"; };
+		8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCell.h; sourceTree = "<group>"; };
+		8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FB5EF8E163C1E7500BE1422 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FB5EFCE163DCF1400BE1422 /* libsqlite3.0.dylib in Frameworks */,
+				8FB5EF96163C1E7500BE1422 /* UIKit.framework in Frameworks */,
+				8FB5EF98163C1E7500BE1422 /* Foundation.framework in Frameworks */,
+				8FB5EF9A163C1E7500BE1422 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8FB5EF86163C1E7500BE1422 = {
+			isa = PBXGroup;
+			children = (
+				8FB5EF9B163C1E7500BE1422 /* LedgerView */,
+				8FB5EF94163C1E7500BE1422 /* Frameworks */,
+				8FB5EF92163C1E7500BE1422 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8FB5EF92163C1E7500BE1422 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FB5EF91163C1E7500BE1422 /* LedgerView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FB5EF94163C1E7500BE1422 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */,
+				8FB5EF95163C1E7500BE1422 /* UIKit.framework */,
+				8FB5EF97163C1E7500BE1422 /* Foundation.framework */,
+				8FB5EF99163C1E7500BE1422 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FB5EF9B163C1E7500BE1422 /* LedgerView */ = {
+			isa = PBXGroup;
+			children = (
+				8FB5EFA4163C1E7600BE1422 /* AppDelegate.h */,
+				8FB5EFA5163C1E7600BE1422 /* AppDelegate.m */,
+				8FB5EFC8163DCA5D00BE1422 /* LedgerDB.h */,
+				8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */,
+				8FB5EF9C163C1E7500BE1422 /* Supporting Files */,
+				8FB5EFB2163C1EC000BE1422 /* LedgerPageViewController.h */,
+				8FB5EFB3163C1EC000BE1422 /* LedgerPageViewController.m */,
+				8FB5EFB4163C1EC000BE1422 /* LedgerPageViewController.xib */,
+				8FB5EFB7163C1ED000BE1422 /* LedgerContentViewController.h */,
+				8FB5EFB8163C1ED000BE1422 /* LedgerContentViewController.m */,
+				8FB5EFB9163C1ED000BE1422 /* LedgerContentViewController.xib */,
+				8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */,
+				8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */,
+			);
+			path = LedgerView;
+			sourceTree = "<group>";
+		};
+		8FB5EF9C163C1E7500BE1422 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8FB5EF9D163C1E7500BE1422 /* LedgerView-Info.plist */,
+				8FB5EF9E163C1E7500BE1422 /* InfoPlist.strings */,
+				8FB5EFA1163C1E7500BE1422 /* main.m */,
+				8FB5EFA3163C1E7600BE1422 /* LedgerView-Prefix.pch */,
+				8FB5EFA7163C1E7600BE1422 /* Default.png */,
+				8FB5EFA9163C1E7600BE1422 /* Default@2x.png */,
+				8FB5EFAB163C1E7600BE1422 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FB5EF90163C1E7500BE1422 /* LedgerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FB5EFAF163C1E7600BE1422 /* Build configuration list for PBXNativeTarget "LedgerView" */;
+			buildPhases = (
+				8FB5EF8D163C1E7500BE1422 /* Sources */,
+				8FB5EF8E163C1E7500BE1422 /* Frameworks */,
+				8FB5EF8F163C1E7500BE1422 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LedgerView;
+			productName = LedgerView;
+			productReference = 8FB5EF91163C1E7500BE1422 /* LedgerView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FB5EF88163C1E7500BE1422 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "YenHsiang Wang";
+			};
+			buildConfigurationList = 8FB5EF8B163C1E7500BE1422 /* Build configuration list for PBXProject "LedgerView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8FB5EF86163C1E7500BE1422;
+			productRefGroup = 8FB5EF92163C1E7500BE1422 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FB5EF90163C1E7500BE1422 /* LedgerView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FB5EF8F163C1E7500BE1422 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FB5EFA0163C1E7500BE1422 /* InfoPlist.strings in Resources */,
+				8FB5EFA8163C1E7600BE1422 /* Default.png in Resources */,
+				8FB5EFAA163C1E7600BE1422 /* Default@2x.png in Resources */,
+				8FB5EFAC163C1E7600BE1422 /* Default-568h@2x.png in Resources */,
+				8FB5EFB6163C1EC000BE1422 /* LedgerPageViewController.xib in Resources */,
+				8FB5EFBB163C1ED000BE1422 /* LedgerContentViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FB5EF8D163C1E7500BE1422 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FB5EFCF163DCF5900BE1422 /* LedgerDB.m in Sources */,
+				8FB5EFA2163C1E7500BE1422 /* main.m in Sources */,
+				8FB5EFA6163C1E7600BE1422 /* AppDelegate.m in Sources */,
+				8FB5EFB5163C1EC000BE1422 /* LedgerPageViewController.m in Sources */,
+				8FB5EFBA163C1ED000BE1422 /* LedgerContentViewController.m in Sources */,
+				8FB5EFD5163E0B8800BE1422 /* LedgerCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8FB5EF9E163C1E7500BE1422 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FB5EF9F163C1E7500BE1422 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8FB5EFAD163C1E7600BE1422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FB5EFAE163C1E7600BE1422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FB5EFB0163C1E7600BE1422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LedgerView/LedgerView-Prefix.pch";
+				INFOPLIST_FILE = "LedgerView/LedgerView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8FB5EFB1163C1E7600BE1422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LedgerView/LedgerView-Prefix.pch";
+				INFOPLIST_FILE = "LedgerView/LedgerView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FB5EF8B163C1E7500BE1422 /* Build configuration list for PBXProject "LedgerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FB5EFAD163C1E7600BE1422 /* Debug */,
+				8FB5EFAE163C1E7600BE1422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FB5EFAF163C1E7600BE1422 /* Build configuration list for PBXNativeTarget "LedgerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FB5EFB0163C1E7600BE1422 /* Debug */,
+				8FB5EFB1163C1E7600BE1422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FB5EF88163C1E7500BE1422 /* Project object */;
+}
