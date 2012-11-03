@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuViewController : UIViewController
+{
+    BOOL isMenuViewPresent;
+}
+
+@property (nonatomic) BOOL isMenuViewPresent;
 
 @end

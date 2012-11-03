@@ -13,6 +13,7 @@
 
 @interface LedgerContentViewController : UIViewController <UIScrollViewDelegate> {
     LedgerDB *ledgerDB;
+
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *transactionView;
@@ -20,5 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *categoryView;
 @property (weak, nonatomic) IBOutlet UIScrollView *summaryTitleView;
 @property (weak, nonatomic) IBOutlet UIScrollView *summaryContentView;
+
+
+
 
 @end

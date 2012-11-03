@@ -16,13 +16,17 @@
 - (void) buildCategoryView:(CGRect) aFrame;
 - (void) buildTransactionsView:(CGRect) aFrame;
 - (UILabel *) createCell: (NSString *) value andPos: (CGPoint) position andSize: (CGSize) size;
+
 @end
 
 static const int cellWidth = 100;
 static const int cellHeight = 33;
 static const int cellGap = 1;
 
+
 @implementation LedgerContentViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +46,7 @@ static const int cellGap = 1;
     [self.view addSubview:self.categoryView];
     [self.view addSubview:self.summaryTitleView];
     [self.view addSubview:self.summaryContentView];
-    self.transactionView.delegate = self;
+    self.transactionView.delegate = self;    
 }
 
 - (void) setUpSubViews

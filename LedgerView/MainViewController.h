@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuViewController.h"
+#import "NavigationViewController.h"
+#import "LedgerContentViewController.h"
 
 @interface MainViewController : UIViewController
+{
+    MenuViewController * menuViewController;
+    NavigationViewController * navViewController;
+    LedgerContentViewController * ledgerContentViewController;
+    
+    UIButton * menuButton;
+    UIView *mainView;
+}
+
+@property (nonatomic, retain) MenuViewController* menuViewController;
+@property (nonatomic, retain) NavigationViewController* navViewController;
+@property (nonatomic, retain) LedgerContentViewController* ledgerContentViewController;
+@property (nonatomic, retain) UIButton* menuButton;
+@property (nonatomic, retain) UIView * mainView;
+
+- (void) menuButtonPressed;
 
 @end
+

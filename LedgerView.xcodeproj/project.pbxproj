@@ -23,6 +23,12 @@
 		8FB5EFCE163DCF1400BE1422 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */; };
 		8FB5EFCF163DCF5900BE1422 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */; };
 		8FB5EFD5163E0B8800BE1422 /* LedgerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */; };
+		FFF212BA1644EA980011C660 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF212B81644EA980011C660 /* NavigationViewController.m */; };
+		FFF212BB1644EA980011C660 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF212B91644EA980011C660 /* NavigationViewController.xib */; };
+		FFF212C01644EFF20011C660 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF212BE1644EFF20011C660 /* MenuViewController.m */; };
+		FFF212C11644EFF20011C660 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF212BF1644EFF20011C660 /* MenuViewController.xib */; };
+		FFF212C51644F4E10011C660 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF212C31644F4E10011C660 /* MainViewController.m */; };
+		FFF212C61644F4E10011C660 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF212C41644F4E10011C660 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,15 @@
 		8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCell.h; sourceTree = "<group>"; };
 		8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCell.m; sourceTree = "<group>"; };
+		FFF212B71644EA980011C660 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		FFF212B81644EA980011C660 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		FFF212B91644EA980011C660 /* NavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		FFF212BD1644EFF20011C660 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		FFF212BE1644EFF20011C660 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		FFF212BF1644EFF20011C660 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		FFF212C21644F4E10011C660 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FFF212C31644F4E10011C660 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FFF212C41644F4E10011C660 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +124,15 @@
 				8FB5EFB7163C1ED000BE1422 /* LedgerContentViewController.h */,
 				8FB5EFB8163C1ED000BE1422 /* LedgerContentViewController.m */,
 				8FB5EFB9163C1ED000BE1422 /* LedgerContentViewController.xib */,
+				FFF212B71644EA980011C660 /* NavigationViewController.h */,
+				FFF212B81644EA980011C660 /* NavigationViewController.m */,
+				FFF212B91644EA980011C660 /* NavigationViewController.xib */,
+				FFF212BD1644EFF20011C660 /* MenuViewController.h */,
+				FFF212BE1644EFF20011C660 /* MenuViewController.m */,
+				FFF212BF1644EFF20011C660 /* MenuViewController.xib */,
+				FFF212C21644F4E10011C660 /* MainViewController.h */,
+				FFF212C31644F4E10011C660 /* MainViewController.m */,
+				FFF212C41644F4E10011C660 /* MainViewController.xib */,
 				8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */,
 				8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */,
 			);
@@ -186,6 +210,9 @@
 				8FB5EFAC163C1E7600BE1422 /* Default-568h@2x.png in Resources */,
 				8FB5EFB6163C1EC000BE1422 /* LedgerPageViewController.xib in Resources */,
 				8FB5EFBB163C1ED000BE1422 /* LedgerContentViewController.xib in Resources */,
+				FFF212BB1644EA980011C660 /* NavigationViewController.xib in Resources */,
+				FFF212C11644EFF20011C660 /* MenuViewController.xib in Resources */,
+				FFF212C61644F4E10011C660 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +229,9 @@
 				8FB5EFB5163C1EC000BE1422 /* LedgerPageViewController.m in Sources */,
 				8FB5EFBA163C1ED000BE1422 /* LedgerContentViewController.m in Sources */,
 				8FB5EFD5163E0B8800BE1422 /* LedgerCell.m in Sources */,
+				FFF212BA1644EA980011C660 /* NavigationViewController.m in Sources */,
+				FFF212C01644EFF20011C660 /* MenuViewController.m in Sources */,
+				FFF212C51644F4E10011C660 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +342,7 @@
 				8FB5EFB1163C1E7600BE1422 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
