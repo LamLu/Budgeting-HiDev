@@ -7,12 +7,14 @@
 //
 
 #import "NavigationViewController.h"
+#import "DatePickerViewController.h"
 
 @interface NavigationViewController ()
 
 @end
 
 @implementation NavigationViewController
+@synthesize datepicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,10 +27,10 @@
         CGFloat screenHeight = screenSize.height;
         [self.view setFrame: CGRectMake (0,0, screenWidth /3.15, screenHeight /7.05 )];
         /*
-        NSLog (@"%f", screenBound.origin.x);
+         NSLog (@"%f", screenBound.origin.x);
          NSLog (@"%f", screenBound.origin.y);
          NSLog (@"%f", screenWidth);
-       NSLog (@"%f", screenHeight);
+         NSLog (@"%f", screenHeight);
          */
         
         
@@ -49,4 +51,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (IBAction)datePickerPressed
+{
+    NSLog(@"Date Picker Pressed");
+    DatePickerViewController * datePickerVC = [[DatePickerViewController alloc] init];
+    float width = datePickerVC.view.frame.size.width;
+    float height = datePickerVC.view.frame.size.height;
+    [self.view.superview addSubview: datePickerVC.view];
+    [UIView animateWithDuration:0.6 animations:^
+     {
+         datePickerVC.view.frame = CGRectMake(0, 0 - height, width, height);
+         datePickerVC.view.frame = CGRectMake(0, 0, width, height);
+     }completion: ^(BOOL finished)
+     {
+       
+     }];
+    
+    [UIView commitAnimations];
+}
 @end

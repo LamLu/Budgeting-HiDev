@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface NavigationViewController : UIViewController
+{
+    UIButton * datepicker;
+}
+
+@property (nonatomic, retain) IBOutlet UIButton * datepicker;
+
+- (IBAction)datePickerPressed;
+
 
 @end

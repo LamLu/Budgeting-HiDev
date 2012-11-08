@@ -23,6 +23,8 @@
 		8FB5EFCE163DCF1400BE1422 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */; };
 		8FB5EFCF163DCF5900BE1422 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */; };
 		8FB5EFD5163E0B8800BE1422 /* LedgerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */; };
+		FF2A5BE81649A3B6006CC9B8 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5BE61649A3B6006CC9B8 /* DatePickerViewController.m */; };
+		FF2A5BE91649A3B6006CC9B8 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF2A5BE71649A3B6006CC9B8 /* DatePickerViewController.xib */; };
 		FFF212BA1644EA980011C660 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF212B81644EA980011C660 /* NavigationViewController.m */; };
 		FFF212BB1644EA980011C660 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF212B91644EA980011C660 /* NavigationViewController.xib */; };
 		FFF212C01644EFF20011C660 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF212BE1644EFF20011C660 /* MenuViewController.m */; };
@@ -56,6 +58,9 @@
 		8FB5EFCD163DCF1400BE1422 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCell.h; sourceTree = "<group>"; };
 		8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCell.m; sourceTree = "<group>"; };
+		FF2A5BE51649A3B6006CC9B8 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		FF2A5BE61649A3B6006CC9B8 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
+		FF2A5BE71649A3B6006CC9B8 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		FFF212B71644EA980011C660 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		FFF212B81644EA980011C660 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		FFF212B91644EA980011C660 /* NavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
@@ -127,6 +132,9 @@
 				FFF212B71644EA980011C660 /* NavigationViewController.h */,
 				FFF212B81644EA980011C660 /* NavigationViewController.m */,
 				FFF212B91644EA980011C660 /* NavigationViewController.xib */,
+				FF2A5BE51649A3B6006CC9B8 /* DatePickerViewController.h */,
+				FF2A5BE61649A3B6006CC9B8 /* DatePickerViewController.m */,
+				FF2A5BE71649A3B6006CC9B8 /* DatePickerViewController.xib */,
 				FFF212BD1644EFF20011C660 /* MenuViewController.h */,
 				FFF212BE1644EFF20011C660 /* MenuViewController.m */,
 				FFF212BF1644EFF20011C660 /* MenuViewController.xib */,
@@ -213,6 +221,7 @@
 				FFF212BB1644EA980011C660 /* NavigationViewController.xib in Resources */,
 				FFF212C11644EFF20011C660 /* MenuViewController.xib in Resources */,
 				FFF212C61644F4E10011C660 /* MainViewController.xib in Resources */,
+				FF2A5BE91649A3B6006CC9B8 /* DatePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +241,7 @@
 				FFF212BA1644EA980011C660 /* NavigationViewController.m in Sources */,
 				FFF212C01644EFF20011C660 /* MenuViewController.m in Sources */,
 				FFF212C51644F4E10011C660 /* MainViewController.m in Sources */,
+				FF2A5BE81649A3B6006CC9B8 /* DatePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
