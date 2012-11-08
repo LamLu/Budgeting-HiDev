@@ -122,7 +122,6 @@
 				8FB5EFA5163C1E7600BE1422 /* AppDelegate.m */,
 				8FB5EFC8163DCA5D00BE1422 /* LedgerDB.h */,
 				8FB5EFC9163DCA5D00BE1422 /* LedgerDB.m */,
-				8FB5EF9C163C1E7500BE1422 /* Supporting Files */,
 				8FB5EFB2163C1EC000BE1422 /* LedgerPageViewController.h */,
 				8FB5EFB3163C1EC000BE1422 /* LedgerPageViewController.m */,
 				8FB5EFB4163C1EC000BE1422 /* LedgerPageViewController.xib */,
@@ -143,6 +142,7 @@
 				FFF212C41644F4E10011C660 /* MainViewController.xib */,
 				8FB5EFD3163E0B8700BE1422 /* LedgerCell.h */,
 				8FB5EFD4163E0B8700BE1422 /* LedgerCell.m */,
+				8FB5EF9C163C1E7500BE1422 /* Supporting Files */,
 			);
 			path = LedgerView;
 			sourceTree = "<group>";

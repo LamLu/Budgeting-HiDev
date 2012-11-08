@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface DatePickerViewController : UIViewController
+{
+    UIBarButtonItem * doneButton;
+}
+
+@property (nonatomic, retain) IBOutlet UIBarButtonItem * doneButton;
+
+- (IBAction) doneButtonPressed;
 
 @end
