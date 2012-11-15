@@ -12,6 +12,7 @@
 
 @interface LedgerDB : NSObject {
     sqlite3 *ledgerDB;
+    BOOL success;
 }
 
 // initiate Database
@@ -19,28 +20,33 @@
 
 // Insert new records
 -(void) insertCategory:(NSString *) categoryName;
--(void) insertBudget:(NSString *) date andBudget:(NSNumber *) budget;
--(void) insertTransactions:(NSString *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) amount;
+-(void) insertBudget:(NSDate *) date andBudget:(NSNumber *) budget;
+-(void) insertTransactions:(NSDate *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) amount;
 
 // Update existing records
 -(void) updateCategory:(NSString *) oldCategoryName andNewName:(NSString *) newCategoryName;
--(void) updateBudget:(NSString *) date andBudget:(NSNumber *) newBudget;
--(void) updateTransactions:(NSString *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) newAmount;
+-(void) updateBudget:(NSDate *) date andBudget:(NSNumber *) newBudget;
+-(void) updateTransactions:(NSDate *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) newAmount;
 
 // Fetch records
 -(NSNumber *) getCID: (NSString *) categoryName;
 -(NSString *) getCategoryName: (NSNumber *) cID;
 -(NSString *) getDate;
--(NSNumber *) getBudget: (NSString *) date;
--(NSNumber *) getTotal: (NSString *) date;
--(NSNumber *) getAmount: (NSString *) date andCID: (NSNumber *) cID;
--(NSNumber *) getAmount: (NSString *) date andCategoryName: (NSString *) cName;
+-(NSNumber *) getBudget: (NSDate *) date;
+-(NSNumber *) getTotal: (NSDate *) date;
+-(NSMutableDictionary *) getTransactions: (NSDate *) date;
+-(NSNumber *) getAmount: (NSDate *) date andCID: (NSNumber *) cID;
+-(NSNumber *) getAmount: (NSDate *) date andCategoryName: (NSString *) cName;
 -(NSMutableArray *) getCategories;
 
 // Delete records
 -(void) deleteCategory:(NSString *) categoryName;
--(void) deleteBudget:(NSString *) date;
--(void) deleteTransactions:(NSString *) date andCID: (NSNumber *) cID;
+-(void) deleteBudget:(NSDate *) date;
+-(void) deleteTransactions:(NSDate *) date andCID: (NSNumber *) cID;
+
+//database status
+-(BOOL) succeed;
+-(NSString *) errMsg;
 
 // Close database
 -(void) closeDB;

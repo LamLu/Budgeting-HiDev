@@ -31,6 +31,7 @@
  */
 -(id) initDB {
     NSLog(@"Initializing Database");
+    success = true;
     if (self = [super init]) {
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
@@ -55,7 +56,7 @@
         [self createCategoryTable];
         [self createBudgetTable];
         [self createTransactionTable];
-
+        
         [self forTesting];
     }
     
@@ -69,6 +70,7 @@
     //[self dropTable:@"CATEGORY"];
     //[self insertDefaultRecords];
     //[self display];
+    //NSLog (@"%@",[self getDate]);
 }
 
 //Create Tables
@@ -128,29 +130,49 @@
     [NSString stringWithFormat:@"INSERT INTO CATEGORY(NAME) VALUES ('%@')", categoryName];
     
     if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
         [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO CATEGORY TABLE", categoryName]];
-        //NSLog(@"Error: failed to INSERT CATEGIRY Table due to %s", sqlite3_errmsg(ledgerDB));
+    }
+    else {
+        success = true;
     }
 }
 
--(void) insertBudget:(NSString *) date andBudget:(NSNumber *) budget {
+-(void) insertBudget:(NSDate *) date andBudget:(NSNumber *) budget {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     char *error;
     NSString *insert_stmt =
-    [NSString stringWithFormat:@"INSERT INTO BUDGET(DATE, BUDGET) VALUES ('%@', %f)", date, [budget doubleValue]];
+    [NSString stringWithFormat:@"INSERT INTO BUDGET(DATE, BUDGET) VALUES ('%@', %f)", dateString, [budget doubleValue]];
     
-    if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
-        [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO BUDGET TABLE", budget]];
-        //NSLog(@"Error: failed to INSERT budget due to %s", sqlite3_errmsg(ledgerDB));
+    if ([self getBudget:date] == NULL) {
+        if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+            success = false;
+            [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO BUDGET TABLE", budget]];
+        }
+        else {
+            success = true;
+        }
     }
 }
 
--(void) insertTransactions:(NSString *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) amount {
+-(void) insertTransactions:(NSDate *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) amount {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     char *error;
     NSString *insert_stmt =
-    [NSString stringWithFormat:@"INSERT INTO TRANSACTIONS VALUES ('%@', %d, %f)", date, [cID integerValue], [amount doubleValue]];
+    [NSString stringWithFormat:@"INSERT INTO TRANSACTIONS VALUES ('%@', %d, %f)", dateString, [cID integerValue], [amount doubleValue]];
     
     if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
         [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO TRANSACTIONS TABLE", amount]];
+    }
+    else {
+        success = true;
     }
 }
 
@@ -161,27 +183,47 @@
     [NSString stringWithFormat:@"UPDATE CATEGORY SET NAME = '%@' WHERE NAME = '%@' ", newCategoryName, oldCategoryName];
     
     if (sqlite3_exec(ledgerDB, [update_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
         [self showErrMsg: [NSString stringWithFormat:@"UPDATE %@ in CATEGORY TABLE", newCategoryName]];
+    }
+    else {
+        success = true;
     }
 }
 
--(void) updateBudget:(NSString *) date andBudget:(NSNumber *) newBudget {
+-(void) updateBudget:(NSDate *) date andBudget:(NSNumber *) newBudget {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     char *error;
     NSString *update_stmt =
-    [NSString stringWithFormat:@"UPDATE BUDGET SET Budget = '%@' WHERE DATE = '%@' ", newBudget, date];
+    [NSString stringWithFormat:@"UPDATE BUDGET SET Budget = '%@' WHERE DATE = '%@' ", newBudget, dateString];
     
     if (sqlite3_exec(ledgerDB, [update_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
         [self showErrMsg: [NSString stringWithFormat:@"UPDATE %@ in BUDGET TABLE", newBudget]];
+        success = false;
+    }
+    else {
+        success = true;
     }
 }
 
--(void) updateTransactions:(NSString *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) newAmount {
+-(void) updateTransactions:(NSDate *) date andCID: (NSNumber *) cID andAmount: (NSNumber *) newAmount {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     char *error;
     NSString *update_stmt =
-    [NSString stringWithFormat:@"UPDATE TRANSACTIONS SET Amount = '%f' WHERE TIME = '%@' AND cID = '%@'", [newAmount doubleValue], date, cID];
+    [NSString stringWithFormat:@"UPDATE TRANSACTIONS SET Amount = '%f' WHERE TIME = '%@' AND cID = '%@'", [newAmount doubleValue], dateString, cID];
     
     if (sqlite3_exec(ledgerDB, [update_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
         [self showErrMsg: [NSString stringWithFormat:@"UPDATE %@ in TRANSACTIONS TABLE", newAmount]];
+    }
+    else {
+        success = true;
     }
 }
 
@@ -192,21 +234,47 @@
     [NSString stringWithFormat:@"DELETE FROM CATEGORY WHERE NAME = '%@'", categoryName];
     
     if (sqlite3_exec(ledgerDB, [delete_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
         [self showErrMsg: [NSString stringWithFormat:@"DELETE %@ FROM CATEGORY TABLE", categoryName]];
+    }
+    else {
+        success = true;
     }
 }
 
--(void) deleteBudget:(NSString *) date {
-    [self updateBudget:date andBudget: [NSNumber numberWithFloat: 0]];
-}
-
--(void) deleteTransactions:(NSString *) date andCID: (NSNumber *) cID {
+-(void) deleteBudget:(NSDate *) date {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     char *error;
     NSString *delete_stmt =
-    [NSString stringWithFormat:@"DELETE FROM TRANSACTIONS WHERE TIME = '%@' AND cID = '%@'", date, cID];
+    [NSString stringWithFormat:@"DELETE FROM Budget WHERE Date = '%@'", dateString];
     
     if (sqlite3_exec(ledgerDB, [delete_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
-        [self showErrMsg: [NSString stringWithFormat:@"DELETE Transaction %@ on %@ FROM CATEGORY TABLE", cID, date]];
+        success = false;
+        [self showErrMsg: [NSString stringWithFormat:@"DELETE Budget on %@ FROM Budget TABLE", dateString]];
+    }
+    else {
+        success = true;
+    }
+}
+
+-(void) deleteTransactions:(NSDate *) date andCID: (NSNumber *) cID {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
+    char *error;
+    NSString *delete_stmt =
+    [NSString stringWithFormat:@"DELETE FROM TRANSACTIONS WHERE TIME = '%@' AND cID = '%@'", dateString, cID];
+    
+    if (sqlite3_exec(ledgerDB, [delete_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+        success = false;
+        [self showErrMsg: [NSString stringWithFormat:@"DELETE Transaction %@ on %@ FROM CATEGORY TABLE", cID, dateString]];
+    }
+    else {
+        success = true;
     }
 }
 
@@ -238,12 +306,37 @@
 }
 
 -(NSString *) getDate {
-    return nil;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateToday = [dateFormat stringFromDate:[NSDate date]];
+
+    return dateToday;
 }
 
--(NSNumber *) getBudget: (NSString *) date {
+-(NSNumber *) getBudget: (NSDate *) date {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     sqlite3_stmt *select = nil;
-    NSString *select_stmt = [NSString stringWithFormat:@"SELECT Budget FROM BUDGET WHERE DATE = '%@'", date];
+    NSString *select_stmt = [NSString stringWithFormat:@"SELECT Budget FROM BUDGET WHERE DATE = '%@'", dateString];
+    sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
+    if (sqlite3_step(select) == SQLITE_ROW) {
+        return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
+    }
+    else {
+        //[self showErrMsg: [NSString stringWithFormat:@"SELECT Budget for '%@'", date]];
+        return NULL;//[NSNumber numberWithInt:0];
+    }
+}
+
+-(NSNumber *) getTotal: (NSDate *) date {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
+    sqlite3_stmt *select = nil;
+    NSString *select_stmt = [NSString stringWithFormat:@"SELECT sum(AMOUNT) FROM TRANSACTIONS WHERE TIME = '%@'", dateString];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     if (sqlite3_step(select) == SQLITE_ROW) {
         return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
@@ -254,22 +347,33 @@
     }
 }
 
--(NSNumber *) getTotal: (NSString *) date {
+-(NSMutableDictionary *) getTransactions: (NSDate *) date {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
+    NSMutableDictionary *transactionList = [[NSMutableDictionary alloc] init];
     sqlite3_stmt *select = nil;
-    NSString *select_stmt = [NSString stringWithFormat:@"SELECT sum(AMOUNT) FROM TRANSACTIONS WHERE TIME = '%@'", date];
+    NSString *select_stmt = [NSString stringWithFormat:@"SELECT Amount, Name FROM TRANSACTIONS T, CATEGORY C WHERE T.TIME = '%@' AND T.cID = C.cID;", dateString];
+    NSNumber *amount = [[NSNumber alloc] init];
+    NSString *cName = [[NSString alloc] init];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
-    if (sqlite3_step(select) == SQLITE_ROW) {
-        return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
+    
+    while (sqlite3_step(select) == SQLITE_ROW) {
+        amount = [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
+        cName = [NSString stringWithFormat:@"%s", sqlite3_column_text(select, 1)];
+        [transactionList setObject:amount forKey:cName];
     }
-    else {
-        //[self showErrMsg: [NSString stringWithFormat:@"SELECT Budget for '%@'", date]];
-        return [NSNumber numberWithInt:0];
-    }
+    return transactionList;
 }
 
--(NSNumber *) getAmount: (NSString *) date andCID: (NSNumber *) cID {
+-(NSNumber *) getAmount: (NSDate *) date andCID: (NSNumber *) cID {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMdd"];
+    NSString *dateString = [dateFormat stringFromDate: date];
+    
     sqlite3_stmt *select = nil;
-    NSString *select_stmt = [NSString stringWithFormat:@"SELECT Amount FROM TRANSACTIONS WHERE TIME = '%@' AND cID = %@;", date, cID];
+    NSString *select_stmt = [NSString stringWithFormat:@"SELECT Amount FROM TRANSACTIONS WHERE TIME = '%@' AND cID = %@;", dateString, cID];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     if (sqlite3_step(select) == SQLITE_ROW) {
         return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
@@ -280,7 +384,7 @@
     }
 }
 
--(NSNumber *) getAmount: (NSString *) date andCategoryName: (NSString *) cName {
+-(NSNumber *) getAmount: (NSDate *) date andCategoryName: (NSString *) cName {
     return [self getAmount:date andCID:[self getCID:cName]];
 }
 
@@ -353,6 +457,16 @@
     
 }
 
+// databases status
+-(BOOL) succeed {
+    return success;
+}
+-(NSString *) errMsg {
+    return nil;
+}
+
+
+
 //for debugging
 -(void) display {
     sqlite3_stmt *select = nil;
@@ -362,7 +476,7 @@
     while (sqlite3_step(select) == SQLITE_ROW) {
         NSLog(@"\nC1\t\tC2\t\n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 2));
     }
-    NSLog(@"\nCATEGORIES:\n%@", [self getCategories]);
+    //NSLog(@"\nTRANSACTIONS:\n%@", [self getCategories]);
 }
 
 
