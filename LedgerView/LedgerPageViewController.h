@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LedgerContentViewController.h"
+#import "LedgerDB.h"
 
-@interface LedgerPageViewController : UIViewController
+@interface LedgerPageViewController : UIViewController <UIPageViewControllerDataSource> {
+    LedgerDB *ledgerDB;
+}
+
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+
 
 @end

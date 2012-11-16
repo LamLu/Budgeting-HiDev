@@ -230,16 +230,26 @@
 //Delete Records
 -(void) deleteCategory:(NSString *) categoryName {
     char *error;
-    NSString *delete_stmt =
-    [NSString stringWithFormat:@"DELETE FROM CATEGORY WHERE NAME = '%@'", categoryName];
     
-    if (sqlite3_exec(ledgerDB, [delete_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+    NSString *delete_transactions_stmt =
+    [NSString stringWithFormat:@"DELETE FROM TRANSACTIONS WHERE cID = '%@'", [self getCID:categoryName]];
+    if (sqlite3_exec(ledgerDB, [delete_transactions_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
         success = false;
-        [self showErrMsg: [NSString stringWithFormat:@"DELETE %@ FROM CATEGORY TABLE", categoryName]];
+        [self showErrMsg: [NSString stringWithFormat:@"DELETE CATEGORY %@ FROM TRANSACTIONS TABLE", categoryName]];
     }
     else {
-        success = true;
+        NSString *delete_stmt =
+        [NSString stringWithFormat:@"DELETE FROM CATEGORY WHERE NAME = '%@'", categoryName];
+        
+        if (sqlite3_exec(ledgerDB, [delete_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
+            success = false;
+            [self showErrMsg: [NSString stringWithFormat:@"DELETE %@ FROM CATEGORY TABLE", categoryName]];
+        }
+        else {
+            success = true;
+        }
     }
+    
 }
 
 -(void) deleteBudget:(NSDate *) date {

@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LedgerContentViewController.h"
-#import "MainViewController.h"
+#import "LedgerPageViewController.h"
 
 @implementation AppDelegate
 
@@ -17,10 +16,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    //LedgerContentViewController *ledgerSheet = [[LedgerContentViewController alloc] init];
-    //[[self window] setRootViewController:ledgerSheet];
-    MainViewController *mainSheet = [[MainViewController alloc]init];
-    [[self window] setRootViewController:mainSheet];
+    LedgerPageViewController *ledgerSheet = [[LedgerPageViewController alloc] init];
+    [[self window] setRootViewController:ledgerSheet];
     
     
     self.window.backgroundColor = [UIColor whiteColor];

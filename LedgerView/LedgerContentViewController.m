@@ -8,25 +8,14 @@
 
 #import "LedgerContentViewController.h"
 
-@interface LedgerContentViewController (private)
-- (void) setUpSubViews;
-- (void) buildDateView:(CGRect) aFrame;
-- (void) buildSummaryTitleView:(CGRect) aFrame;
-- (void) buildSummaryContentView:(CGRect) aFrame;
-- (void) buildCategoryView:(CGRect) aFrame;
-- (void) buildTransactionsView:(CGRect) aFrame;
-- (UILabel *) createCell: (NSString *) value andPos: (CGPoint) position andSize: (CGSize) size;
+@interface LedgerContentViewController () 
 
 @end
 
-static const int cellWidth = 100;
-static const int cellHeight = 33;
-static const int cellGap = 1;
-
-
 @implementation LedgerContentViewController
-
-
+@synthesize transactionLongPressRecog;
+@synthesize dateArray;
+@synthesize ledgerDB;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,14 +28,8 @@ static const int cellGap = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    ledgerDB = [[LedgerDB alloc] initDB];
+    //ledgerDB = [[LedgerDB alloc] initDB];
     [self setUpSubViews];
-    [self.view addSubview:self.transactionView];
-    [self.view addSubview:self.dateView];
-    [self.view addSubview:self.categoryView];
-    [self.view addSubview:self.summaryTitleView];
-    [self.view addSubview:self.summaryContentView];
-    self.transactionView.delegate = self;    
 }
 
 - (void) setUpSubViews
@@ -60,22 +43,22 @@ static const int cellGap = 1;
     //set the summary title pos
     [self buildSummaryTitleView:
         CGRectMake(0,
-                   screenHeight - (cellHeight + cellGap) * 3 - 21,
-                   cellWidth + cellGap * 2,
-                   (cellHeight + cellGap) * 3 + cellGap)];
+                   screenHeight - [LedgerCell getCellSize].height * 3 - 16,
+                   [LedgerCell getCellSize].width,
+                   [LedgerCell getCellSize].height * 3)];
    
     //set the dateRow pos
     [self buildDateView:
-        CGRectMake(self.summaryTitleView.frame.origin.x + cellWidth + cellGap * 4,
+        CGRectMake(self.summaryTitleView.frame.origin.x + [LedgerCell getCellSize].width + cellGap * 2,
                    0,
-                   screenWidth - cellWidth - cellGap * 2,
-                   cellHeight * 2 + cellGap * 2)];
+                   screenWidth - [LedgerCell getCellSize].width - 3 * cellGap,
+                   [LedgerCell getCellSize].height * 2 - 2)];
     
     //set the summary content pos
     [self buildSummaryContentView:
-        CGRectMake(self.summaryTitleView.frame.origin.x + cellWidth + cellGap * 4,
+        CGRectMake(self.dateView.frame.origin.x,
                    self.summaryTitleView.frame.origin.y,
-                   screenWidth - cellWidth - cellGap * 2,
+                   self.dateView.frame.size.width,
                    self.summaryTitleView.frame.size.height)];
     
     //set the categoryColumn pos
@@ -91,19 +74,40 @@ static const int cellGap = 1;
                    self.categoryView.frame.origin.y,
                    self.dateView.frame.size.width,
                    self.categoryView.frame.size.height)];
+    
+    [self setOffsetToPos:todayPos];
+    [self.view addSubview:self.transactionView];
+    [self.view addSubview:self.dateView];
+    [self.view addSubview:self.categoryView];
+    [self.view addSubview:self.summaryTitleView];
+    [self.view addSubview:self.summaryContentView];
+    self.transactionView.delegate = self;
 }
 
 - (void) buildDateView:(CGRect) aFrame
 {
     [self.dateView setFrame: aFrame];
     [self.dateView setBackgroundColor: [UIColor brownColor]];
+    [self.dateView setContentSize:
+     CGSizeMake([dateArray count] * (cellWidth + cellGap) + 1,
+                ((cellHeight + cellGap) + 1))];
+    
     CGPoint pos = CGPointMake(1, 1);
-    for (int i = 0; i < 7; i++) {
+    self->todayPos = CGPointMake(0,0);
+    
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd\nEEEE"];
+    
+    for (int i = 0; i < [dateArray count]; i++) {
         [self.dateView addSubview:
-            [self createCell: [NSString stringWithFormat:@"2012100%d", i + 1]
-                      andPos: CGPointMake(pos.x, pos.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight * 2)
-                andAlignment: NSTextAlignmentCenter]];
+         [[LedgerCell alloc] initWithFrame: CGRectMake(pos.x, pos.y, cellWidth, cellHeight * 2)
+                                   andText: [dateFormat stringFromDate: dateArray[i]]
+                               andProperty: DateCell]];
+        if ([[dateFormat stringFromDate: dateArray[i]] isEqual: [dateFormat stringFromDate: today]]) {
+            self->todayPos = CGPointMake(pos.x - cellGap * 2 - (aFrame.size.width - cellWidth) / 2, pos.y - cellGap);
+            [((LedgerCell *)[[self.dateView subviews] objectAtIndex: [[self.dateView subviews] count] - 1]) setBackgroundColor: [UIColor grayColor]];
+        }
         pos.x += cellWidth + cellGap;
     }
 }
@@ -116,10 +120,9 @@ static const int cellGap = 1;
     NSArray *titleArray = [NSArray arrayWithObjects:@"Total:", @"Budget:", @"Availabale:", nil];
     for (int i = 0; i < [titleArray count]; i++) {
         [self.summaryTitleView addSubview:
-            [self createCell: [titleArray objectAtIndex:i]
-                      andPos: CGPointMake(pos.x, pos.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight)
-                andAlignment: NSTextAlignmentLeft]];
+         [[LedgerCell alloc] initWithFrame: CGRectMake(pos.x, pos.y, cellWidth, cellHeight)
+                                   andText: [titleArray objectAtIndex:i]
+                               andProperty: SummaryTitleCell]];
         pos.y += cellHeight + cellGap;
     }
 }
@@ -128,78 +131,30 @@ static const int cellGap = 1;
 {
     [self.summaryContentView setFrame: aFrame];
     [self.summaryContentView setBackgroundColor: [UIColor brownColor]];
-    
-    NSArray *dateViewArray = self.dateView.subviews;
-    NSArray *sumTitleViewArray = self.summaryTitleView.subviews;
-    NSNumber *budget = [NSNumber alloc];
-    NSNumber *total = [NSNumber alloc];
-    
-    for (int i = 0; i < [dateViewArray count]; i++) {
-        CGRect dateLabel = [[dateViewArray objectAtIndex:i] frame];
-        
-        // 0 = total; 1 = budget; 2 = available
-        total = [ledgerDB getTotal:[[dateViewArray objectAtIndex:i] text]];
-        CGRect summaryTotalLabel = [[sumTitleViewArray objectAtIndex:0] frame];
-        [self.summaryContentView addSubview:
-            [self createCell: [NSString stringWithFormat:@"%.2f", [total doubleValue]]
-                      andPos: CGPointMake(dateLabel.origin.x, summaryTotalLabel.origin.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight)
-                andAlignment: NSTextAlignmentRight]];
-        
-        // budget
-        budget = [ledgerDB getBudget:[[dateViewArray objectAtIndex:i] text]];
-        CGRect summaryTitleLabel = [[sumTitleViewArray objectAtIndex:1] frame];
-        [self.summaryContentView addSubview:
-            [self createCell: [NSString stringWithFormat:@"%.2f", [budget doubleValue]]
-                      andPos: CGPointMake(dateLabel.origin.x, summaryTitleLabel.origin.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight)
-                andAlignment: NSTextAlignmentRight]];
-       
-        // available
-        CGRect summaryAvaiLabel = [[sumTitleViewArray objectAtIndex:2] frame];
-        [self.summaryContentView addSubview:
-            [self createCell: [NSString stringWithFormat:@"%.2f", [budget doubleValue] - [total doubleValue]]
-                      andPos: CGPointMake(dateLabel.origin.x, summaryAvaiLabel.origin.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight)
-                andAlignment: NSTextAlignmentRight]];
-    }
-    
-    /*
-    CGPoint pos = CGPointMake(1, 1);
-    for (int i = 0; i < [self.dateView.subviews count]; i++) {
-        for (int j = 0; j < [self.summaryTitleView.subviews count]; j++) {
-            [self.summaryContentView addSubview:
-                [self createCell: [NSString stringWithFormat:@"%d", (j + 1) * 10 + i + 1]
-                          andPos: CGPointMake(pos.x, pos.y)
-                         andSize: CGSizeMake(cellWidth, cellHeight)]];
-            pos.y += cellHeight + cellGap;
-        }
-        pos.x += cellWidth + cellGap;
-        pos.y = 1;
-    }
-     */
+    [self.summaryContentView setContentSize:
+     CGSizeMake([dateArray count] * (cellWidth + cellGap) + 1,
+                ((cellHeight + cellGap) * 3 + 1))];
+    [self reloadSummaryContentView];
 }
 
 - (void) buildCategoryView:(CGRect) aFrame
 {
     [self.categoryView setFrame: aFrame];
     [self.categoryView setBackgroundColor: [UIColor brownColor]];
-    NSMutableArray *categories = [ledgerDB getCategories];
-    CGPoint pos = CGPointMake(1, 1);
-    for (int i = 0; i < [categories count]; i++) {
-        [self.categoryView addSubview:
-            [self createCell: [categories objectAtIndex:i]
-                      andPos: CGPointMake(pos.x, pos.y)
-                     andSize: CGSizeMake(cellWidth, cellHeight)
-                andAlignment: NSTextAlignmentRight]];
-        pos.y += cellHeight + cellGap;
-    }
-    //UIButton *addCategory = [[UIButton alloc] initWithFrame:CGRectMake(pos.x, pos.y, cellWidth, cellHeight)];
-    LedgerCell *addCategory = [[LedgerCell alloc]initWithFrame:CGRectMake(pos.x, pos.y, cellWidth, cellHeight) andText:@"+"];
-    //UIButton *addCategory = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    //[addCategory setFrame:CGRectMake(pos.x, pos.y, cellWidth, cellHeight)];
-    [addCategory setBackgroundColor: [UIColor grayColor]];
-    [self.categoryView addSubview:addCategory];
+    [self reloadCategoryView];
+}
+
+- (void) addNewCategory {
+    UIAlertView *addingCategory = [[UIAlertView alloc] init];
+    [addingCategory setDelegate:self];
+    [addingCategory setTitle:@"Add a new category"];
+    [addingCategory addButtonWithTitle:@"Cancel"];
+    [addingCategory addButtonWithTitle:@"Done"];
+    
+    [addingCategory setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [[addingCategory textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeAlphabet];
+    [[addingCategory textFieldAtIndex:0] setPlaceholder:@"New Category"];
+    [addingCategory show];
 }
 
 - (void) buildTransactionsView:(CGRect) aFrame
@@ -210,54 +165,52 @@ static const int cellGap = 1;
         CGSizeMake([self.dateView.subviews count] * (cellWidth + cellGap) + 1,
                    ([self.categoryView.subviews count] - 1)* (cellHeight + cellGap) + 1)];
     
-    NSArray *dateArray = [[NSArray alloc]initWithObjects:@"20121001", @"20121002", @"20121003", nil];
-    NSMutableArray *cNameList = [ledgerDB getCategories];
+    //Adding UILongPressGestureRecognizer
+    self.transactionLongPressRecog = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addingTransaction)];
+    [self.transactionLongPressRecog setMinimumPressDuration:1];
+    [self.transactionView addGestureRecognizer:self.transactionLongPressRecog];
+    self.transactionView.userInteractionEnabled = YES;
+    
+    [self reloadTransactionView];
+}
+
+- (void) addingTransaction{
+    if (self.transactionLongPressRecog.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
     NSArray *dateViewArray = self.dateView.subviews;
     NSMutableArray *cateViewArray = [[NSMutableArray alloc] initWithArray:self.categoryView.subviews];
     [cateViewArray removeObjectAtIndex: [cateViewArray count] - 1];
+    CGPoint pt = [self.transactionLongPressRecog locationInView: self.transactionView];
+    int cIndex = (int) (pt.y / (cellHeight + cellGap));
+    int dIndex = (int) (pt.x / (cellWidth + cellGap));
     
-    NSNumber *amount = [NSNumber alloc];
-    
-    for (int i = 0; i <[dateArray count]; i++ ){
-        for (int j = 0; j < [cateViewArray count]; j++) {
-            amount = [ledgerDB getAmount:dateArray[i] andCategoryName:cNameList[j]];
-            if (amount != nil) {
-                CGRect dateLabel = [[dateViewArray objectAtIndex:i] frame];
-                CGRect categoryLabel = [[cateViewArray objectAtIndex:j] frame];
-                [self.transactionView addSubview:
-                    [self createCell: [NSString stringWithFormat:@"%.2f", [amount doubleValue]]
-                            andPos: CGPointMake(dateLabel.origin.x, categoryLabel.origin.y)
-                             andSize: CGSizeMake(cellWidth, cellHeight)
-                        andAlignment: NSTextAlignmentRight]];
-            }
-        }
+    if (cIndex < [cateViewArray count] && dIndex < [dateViewArray count]) {
+        UIAlertView *addingTransaction = [[UIAlertView alloc] init];
+        [addingTransaction setDelegate:self];
+        [addingTransaction setTitle: [NSString stringWithFormat:@"$ for %@ on \n%@",
+                [[cateViewArray objectAtIndex:cIndex] text], [[dateViewArray objectAtIndex:dIndex] text]]];
+        [addingTransaction addButtonWithTitle:@"Cancel"];
+        [addingTransaction addButtonWithTitle:@"Done"];
+        
+        [addingTransaction setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [[addingTransaction textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDecimalPad];
+        [[addingTransaction textFieldAtIndex:0] setPlaceholder:@"0.00"];
+        [addingTransaction show];
+        CGPoint cellPt = CGPointMake([[dateViewArray objectAtIndex:dIndex] frame].origin.x, [[cateViewArray objectAtIndex:cIndex] frame].origin.y);
+        LedgerCell *addedTransaction =
+        [[LedgerCell alloc]initWithFrame:CGRectMake(cellPt.x, cellPt.y, cellWidth, cellHeight)
+                                 andText:[NSString stringWithFormat:@"0.00"]
+                             andProperty:TransactionCell];
+        [self.transactionView addSubview:addedTransaction];
     }
-    
-    //NSString * cName = [[[self.categoryView.subviews objectAtIndex:0] textFieldAtIndex:0] text];
-    //NSLog(@"%@", cName);
-    
-    /*
-    int xPos = 1;
-    int yPos = 1;
-    for (int i = 0; i < [self.dateView.subviews count]; i++) {
-        for(int i = 0; i < [self.categoryView.subviews count]; i++) {
-            [self.transactionView addSubview: [self createCell: [NSString stringWithFormat:@""] andPos:CGPointMake(xPos, yPos) andSize:CGSizeMake(cellWidth, cellHeight)]];
-            yPos += cellHeight + cellGap;
-        }
-        xPos += cellWidth + cellGap;
-        yPos = 1;
-    }
-     */
 }
 
-- (UILabel *) createCell: (NSString *) value andPos: (CGPoint) position andSize: (CGSize) size andAlignment: (NSTextAlignment) alignment
+- (void) setOffsetToPos:(CGPoint) pos
 {
-    UILabel *cell = [[UILabel alloc] initWithFrame:CGRectMake(position.x, position.y, size.width, size.height)];
-    [cell setText:value];
-    [cell setTextColor:[UIColor darkGrayColor]];
-    [cell setBackgroundColor:[UIColor lightGrayColor]];
-    [cell setTextAlignment:alignment];
-    return cell;
+    [self.dateView setContentOffset:pos];
+    [self.transactionView setContentOffset:pos];
+    [self.summaryContentView setContentOffset:pos];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -267,6 +220,169 @@ static const int cellGap = 1;
     [self.summaryContentView setContentOffset:CGPointMake(offset.x, 0) animated:NO];
     [self.categoryView setContentOffset:CGPointMake(0, offset.y) animated:NO];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    NSString *placeHolder = [[alertView textFieldAtIndex:0] placeholder];
+    
+    if([title isEqualToString:@"Done"] && [placeHolder isEqualToString:@"New Category"])
+    {
+        NSMutableArray *cateViewArray = [[NSMutableArray alloc] initWithArray:self.categoryView.subviews];
+        int cIndex = [cateViewArray count] - 1;
+        CGPoint pt = CGPointMake([[cateViewArray objectAtIndex:cIndex] frame].origin.x,
+                                 [[cateViewArray objectAtIndex:cIndex] frame].origin.y);
+        
+        LedgerCell *aNewCategory =
+        [[LedgerCell alloc] initWithFrame: CGRectMake(pt.x, pt.y, cellWidth, cellHeight)
+                                  andText: [[alertView textFieldAtIndex:0] text]
+                              andProperty: CategoryCell];
+        
+        [self.categoryView insertSubview:aNewCategory atIndex:cIndex];
+        
+        [[cateViewArray objectAtIndex:cIndex] setCenter:
+         CGPointMake([[cateViewArray objectAtIndex:cIndex] center].x,
+                     [[cateViewArray objectAtIndex:cIndex] center].y + cellHeight + cellGap)];
+        
+        [ledgerDB insertCategory: [[alertView textFieldAtIndex:0] text]];
+        
+        [self.categoryView setContentSize:
+         CGSizeMake([self.categoryView frame].size.width,
+                    ([self.categoryView.subviews count] - 1)* (cellHeight + cellGap) + 1)];
+        
+        [self.transactionView setContentSize:
+         CGSizeMake([self.dateView.subviews count] * (cellWidth + cellGap) + 1,
+                    ([self.categoryView.subviews count])* (cellHeight + cellGap) + 1)];
+    }
+    else if ([title isEqualToString:@"Done"] && [placeHolder isEqualToString:@"0.00"]) {
+        NSArray *transactionViewArray = self.transactionView.subviews;
+        LedgerCell *temp = [transactionViewArray objectAtIndex: [transactionViewArray count] - 1];
+        [temp setText: [NSString stringWithFormat:@"%.2f", [[[alertView textFieldAtIndex:0] text] doubleValue]]];
+        
+        //inserting data to the database
+        NSMutableArray *cateViewArray = [[NSMutableArray alloc] initWithArray:self.categoryView.subviews];
+        [cateViewArray removeObjectAtIndex: [cateViewArray count] - 1];
+        int cIndex = (int) ([temp frame].origin.y / (cellHeight + cellGap));
+        int dIndex = (int) ([temp frame].origin.x / (cellWidth + cellGap));
+    
+        [ledgerDB insertBudget: dateArray[dIndex] andBudget:0];
+        [ledgerDB insertTransactions: dateArray[dIndex]
+                              andCID: [ledgerDB getCID:[((LedgerCell *)[cateViewArray objectAtIndex:cIndex]) text]]
+                           andAmount: [NSNumber numberWithDouble:[[temp text] doubleValue]]];
+        
+        //Update summary view
+        NSArray *summViewArray = self.summaryContentView.subviews;
+        NSNumber *total, *budget;
+        total = [ledgerDB getTotal:[dateArray objectAtIndex:dIndex]];
+        budget = [ledgerDB getBudget:[dateArray objectAtIndex:dIndex]];
+        
+        //Index of Total Label
+        int sIndex = dIndex * 3;
+        [((LedgerCell *)[summViewArray objectAtIndex:sIndex]) setText: [total stringValue]];
+        //Index of Available Label
+        sIndex += 2;
+        [((LedgerCell *)[summViewArray objectAtIndex:sIndex]) setText: [NSString stringWithFormat:@"%.2f", [budget doubleValue] - [total doubleValue]]];
+    }
+    else if ([title isEqualToString:@"Cancel"] && [placeHolder isEqualToString:@"0.00"]) {
+        [[self.transactionView.subviews objectAtIndex:[self.transactionView.subviews count] - 1] removeFromSuperview];
+    }
+}
+
+- (void) reloadDB {
+    [self reloadCategoryView];
+    [self reloadSummaryContentView];
+    [self reloadTransactionView];
+}
+
+- (void) reloadCategoryView {
+    while ([[self.categoryView subviews] count] != 0) {
+        [[[self.categoryView subviews] objectAtIndex:0] removeFromSuperview];
+    }
+    NSMutableArray *categories = [ledgerDB getCategories];
+    CGPoint pos = CGPointMake(1, 1);
+    for (int i = 0; i < [categories count]; i++) {
+        [self.categoryView addSubview:
+         [[LedgerCell alloc] initWithFrame: CGRectMake(pos.x, pos.y, cellWidth, cellHeight)
+                                   andText: [categories objectAtIndex:i]
+                               andProperty: CategoryCell]];
+        pos.y += cellHeight + cellGap;
+    }
+    
+    UIButton *addCategory = [[UIButton alloc] initWithFrame:CGRectMake(pos.x, pos.y, cellWidth, cellHeight)];
+    
+    [addCategory setBackgroundColor: [UIColor grayColor]];
+    [addCategory setTitle:@"+" forState: UIControlStateNormal];
+    [addCategory addTarget:self action:@selector(addNewCategory) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.categoryView addSubview:addCategory];
+}
+
+- (void) reloadTransactionView {
+    while ([[self.transactionView subviews] count] != 0) {
+        [[[self.transactionView subviews] objectAtIndex:0] removeFromSuperview];
+    }
+    NSMutableArray *cNameList = [ledgerDB getCategories];
+    NSArray *dateViewArray = self.dateView.subviews;
+    NSMutableArray *cateViewArray = [[NSMutableArray alloc] initWithArray:self.categoryView.subviews];
+    [cateViewArray removeObjectAtIndex: [cateViewArray count] - 1];
+    NSNumber *amount = [NSNumber alloc];
+    NSMutableDictionary *transactions = [[NSMutableDictionary alloc]init];
+    
+    for (int i = 0; i <[dateArray count]; i++){
+        transactions = [ledgerDB getTransactions:[dateArray objectAtIndex:i]];
+        for (int j = 0; j < [[transactions allKeys] count]; j++) {
+            NSString *cName = [[transactions allKeys] objectAtIndex:j];
+            NSInteger cIndex = [cNameList indexOfObject: cName];
+            amount = [transactions objectForKey:cName];
+            
+            if (amount != nil) {
+                CGPoint pt = CGPointMake([[dateViewArray objectAtIndex:i] frame].origin.x, [[cateViewArray objectAtIndex:cIndex] frame].origin.y);
+                [self.transactionView addSubview:
+                 [[LedgerCell alloc] initWithFrame: CGRectMake(pt.x, pt.y, cellWidth, cellHeight)
+                                           andText: [NSString stringWithFormat:@"%.2f", [amount doubleValue]]
+                                       andProperty: TransactionCell]];
+            }
+        }
+    }
+}
+
+- (void) reloadSummaryContentView {
+    while ([[self.summaryContentView subviews] count] != 0) {
+        [[[self.summaryContentView subviews] objectAtIndex:0] removeFromSuperview];
+    }
+    
+    NSArray *dateViewArray = self.dateView.subviews;
+    NSArray *sumTitleViewArray = self.summaryTitleView.subviews;
+    NSNumber *budget = [NSNumber alloc];
+    NSNumber *total = [NSNumber alloc];
+    
+    for (int i = 0; i < [dateArray count]; i++) {
+        CGRect dateLabel = [[dateViewArray objectAtIndex:i] frame];
+        
+        // 0 = total; 1 = budget; 2 = available
+        total = [ledgerDB getTotal:[dateArray objectAtIndex:i]];
+        CGRect summaryTotalLabel = [[sumTitleViewArray objectAtIndex:0] frame];
+        [self.summaryContentView addSubview:
+         [[LedgerCell alloc] initWithFrame: CGRectMake(dateLabel.origin.x, summaryTotalLabel.origin.y, cellWidth, cellHeight)
+                                   andText: [NSString stringWithFormat:@"%.2f", [total doubleValue]]
+                               andProperty: SummaryContentCell]];
+        // budget
+        budget = [ledgerDB getBudget:[dateArray objectAtIndex:i]];
+        CGRect summaryBudgetLabel = [[sumTitleViewArray objectAtIndex:1] frame];
+        [self.summaryContentView addSubview:
+         [[LedgerCell alloc] initWithFrame: CGRectMake(dateLabel.origin.x, summaryBudgetLabel.origin.y, cellWidth, cellHeight)
+                                   andText: [NSString stringWithFormat:@"%.2f", [budget doubleValue]]
+                               andProperty: SummaryBudgetCell]];
+        // available
+        CGRect summaryAvaiLabel = [[sumTitleViewArray objectAtIndex:2] frame];
+        
+        [self.summaryContentView addSubview:
+         [[LedgerCell alloc] initWithFrame: CGRectMake(dateLabel.origin.x, summaryAvaiLabel.origin.y, cellWidth, cellHeight)
+                                   andText: [NSString stringWithFormat:@"%.2f", [budget doubleValue] - [total doubleValue]]
+                               andProperty: SummaryContentCell]];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

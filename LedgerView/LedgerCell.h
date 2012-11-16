@@ -7,16 +7,48 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LedgerContentViewController.h"
 
-@interface LedgerCell : UILabel {
+
+@interface LedgerCell : UILabel <UIAlertViewDelegate> {
     bool editable;
+    bool deletable;
     NSString *text;
+    int cellProperty;
+    int cellStatus;
     UILongPressGestureRecognizer *longPressRecog;
+    UIPanGestureRecognizer *dragRecog;
+    
 }
+@property int cellStatus;
+@property (nonatomic, retain) UILongPressGestureRecognizer *longPressRecog;
+@property (nonatomic, retain) UIPanGestureRecognizer *dragRecog;
+@property (nonatomic, retain) NSString *property;
 
-@property (nonatomic, retain) IBOutlet UILongPressGestureRecognizer *longPressRecog;
+typedef enum {
+    DateCell,
+    CategoryCell,
+    TransactionCell,
+    SummaryContentCell,
+    SummaryTitleCell,
+    SummaryBudgetCell,
+} CellProperty;
 
-- (id) initWithFrame:(CGRect)aFrame andText:(NSString *)aText;
-- (IBAction) editing:(id)sender;
+typedef enum {
+    INITIAL_CELL,
+    UPDATING_CELL,
+    INSERTING_CELL
+} CellStatus;
+
+
+- (id) initWithFrame:(CGRect)aFrame andText:(NSString *)aText andProperty: (int) aProperty;
+- (void) rePosition: (CGPoint) pt;
+- (void) editing;
+- (void) translate;
++ (CGSize) getCellSize;
 
 @end
+
+static const double cellWidth = 105;
+static const double cellHeight = 32;
+static const double cellGap = 1;

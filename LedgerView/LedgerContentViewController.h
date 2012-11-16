@@ -9,20 +9,31 @@
 #import <UIKit/UIKit.h>
 #import "LedgerCell.h"
 #import "LedgerDB.h"
+#import "LedgerPageViewController.h"
 
 
-@interface LedgerContentViewController : UIViewController <UIScrollViewDelegate> {
+@interface LedgerContentViewController : UIViewController <UIScrollViewDelegate, UIAlertViewDelegate> {
     LedgerDB *ledgerDB;
-
+    CGPoint todayPos;
+    NSMutableArray *dateArray; 
+    UILongPressGestureRecognizer *transactionLongPressRecog;
 }
-
-@property (weak, nonatomic) IBOutlet UIScrollView *transactionView;
-@property (weak, nonatomic) IBOutlet UIScrollView *dateView;
-@property (weak, nonatomic) IBOutlet UIScrollView *categoryView;
-@property (weak, nonatomic) IBOutlet UIScrollView *summaryTitleView;
-@property (weak, nonatomic) IBOutlet UIScrollView *summaryContentView;
+@property (nonatomic, strong) NSMutableArray *dateArray;
+@property (nonatomic) LedgerDB *ledgerDB;
 
 
+@property (nonatomic, retain)  UILongPressGestureRecognizer *transactionLongPressRecog;
+@property (weak, nonatomic)  UIScrollView *transactionView;
+@property (weak, nonatomic)  UIScrollView *dateView;
+@property (weak, nonatomic)  UIScrollView *categoryView;
+@property (weak, nonatomic)  UIScrollView *summaryTitleView;
+@property (weak, nonatomic)  UIScrollView *summaryContentView;
 
+- (void) setUpSubViews;
+
+- (void) reloadDB;
+- (void) reloadCategoryView;
+- (void) reloadTransactionView;
+- (void) reloadSummaryContentView;
 
 @end
