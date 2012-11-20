@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52897514165B2E1E00F29555 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 52897511165B2E1E00F29555 /* BarChart.m */; };
+		52897515165B2E1E00F29555 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52897513165B2E1E00F29555 /* ViewController.m */; };
 		8FB5EF96163C1E7500BE1422 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF95163C1E7500BE1422 /* UIKit.framework */; };
 		8FB5EF98163C1E7500BE1422 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF97163C1E7500BE1422 /* Foundation.framework */; };
 		8FB5EF9A163C1E7500BE1422 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5EF99163C1E7500BE1422 /* CoreGraphics.framework */; };
@@ -34,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52897510165B2E1E00F29555 /* BarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChart.h; path = "../../Documents/Learn Objective C/BarChartV2/BarChartV2/BarChart.h"; sourceTree = "<group>"; };
+		52897511165B2E1E00F29555 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChart.m; path = "../../Documents/Learn Objective C/BarChartV2/BarChartV2/BarChart.m"; sourceTree = "<group>"; };
+		52897512165B2E1E00F29555 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../../Documents/Learn Objective C/BarChartV2/BarChartV2/ViewController.h"; sourceTree = "<group>"; };
+		52897513165B2E1E00F29555 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../../Documents/Learn Objective C/BarChartV2/BarChartV2/ViewController.m"; sourceTree = "<group>"; };
 		8FB5EF91163C1E7500BE1422 /* LedgerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedgerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB5EF95163C1E7500BE1422 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FB5EF97163C1E7500BE1422 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +124,10 @@
 		8FB5EF9B163C1E7500BE1422 /* LedgerView */ = {
 			isa = PBXGroup;
 			children = (
+				52897510165B2E1E00F29555 /* BarChart.h */,
+				52897511165B2E1E00F29555 /* BarChart.m */,
+				52897512165B2E1E00F29555 /* ViewController.h */,
+				52897513165B2E1E00F29555 /* ViewController.m */,
 				8FB5EFA4163C1E7600BE1422 /* AppDelegate.h */,
 				8FB5EFA5163C1E7600BE1422 /* AppDelegate.m */,
 				8FB5EFC8163DCA5D00BE1422 /* LedgerDB.h */,
@@ -242,6 +252,8 @@
 				FFF212C01644EFF20011C660 /* MenuViewController.m in Sources */,
 				FFF212C51644F4E10011C660 /* MainViewController.m in Sources */,
 				FF2A5BE81649A3B6006CC9B8 /* DatePickerViewController.m in Sources */,
+				52897514165B2E1E00F29555 /* BarChart.m in Sources */,
+				52897515165B2E1E00F29555 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
