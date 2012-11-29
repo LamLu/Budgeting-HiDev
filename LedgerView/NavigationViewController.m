@@ -32,8 +32,6 @@
          NSLog (@"%f", screenWidth);
          NSLog (@"%f", screenHeight);
          */
-        
-        
     }
     return self;
 }
@@ -50,7 +48,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 - (IBAction)datePickerPressed
