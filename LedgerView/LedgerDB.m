@@ -68,8 +68,8 @@
     //[self dropTable:@"TRANSACTIONS"];
     //[self dropTable:@"BUDGET"];
     //[self dropTable:@"CATEGORY"];
-    //[self insertDefaultRecords];
-    //[self display];
+    [self insertDefaultRecords];
+    [self display];
     //NSLog (@"%@",[self getDate]);
 }
 
@@ -437,21 +437,30 @@
 //for debugging
 -(void) insertDefaultRecords
 {    
-    /*
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comp = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate: today];
+    // this will set the date to 2012 - 11 - 10
+    [comp setDay:10];
+    [comp setMonth:11];
+    [comp setYear:2012];
+    
+    //use this line to retrieve the date
+    [gregorian dateFromComponents:comp];
     [self insertCategory:@"Breakfast"];
     [self insertCategory:@"Lunch"];
     [self insertCategory:@"Dinner"];
     [self insertCategory:@"Transportation"];
     
-    [self insertBudget:@"20121001" andBudget:[NSNumber numberWithFloat:30.0]];
-    [self insertBudget:@"20121002" andBudget:[NSNumber numberWithFloat:30.0]];
-    [self insertBudget:@"20121003" andBudget:[NSNumber numberWithFloat:50.0]];
+    [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:30.0]];
+    [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:30.0]];
+    [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:50.0]];
     
-    [self insertTransactions:@"20121001" andCID:[NSNumber numberWithInt:1] andAmount:[NSNumber numberWithFloat:12.9]];
-    [self insertTransactions:@"20121001" andCID:[NSNumber numberWithInt:2] andAmount:[NSNumber numberWithFloat:7.95]];
-    */
-    //[self insertTransactions:@"20121002" andCID:[NSNumber numberWithInt:2] andAmount:[NSNumber numberWithFloat:15.93]];
-    //[self insertTransactions:@"20121003" andCID:[NSNumber numberWithInt:3] andAmount:[NSNumber numberWithFloat:23.75]];
+    [self insertTransactions:[gregorian dateFromComponents:comp] andCID:[NSNumber numberWithInt:1] andAmount:[NSNumber numberWithFloat:12.9]];
+    [self insertTransactions:[gregorian dateFromComponents:comp] andCID:[NSNumber numberWithInt:2] andAmount:[NSNumber numberWithFloat:7.95]];
+    
+    [self insertTransactions:[gregorian dateFromComponents:comp] andCID:[NSNumber numberWithInt:3] andAmount:[NSNumber numberWithFloat:15.93]];
+    [self insertTransactions:[gregorian dateFromComponents:comp] andCID:[NSNumber numberWithInt:4] andAmount:[NSNumber numberWithFloat:23.75]];
     
     //[self updateCategory:@"Transportation" andNewName:@"Gas"];
     //[self updateBudget:@"20121002" andBudget: [NSNumber numberWithFloat: 40]];

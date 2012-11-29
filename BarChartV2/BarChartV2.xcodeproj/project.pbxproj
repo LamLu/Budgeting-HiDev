@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		528974781652F59F00F29555 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528974771652F59F00F29555 /* UIKit.framework */; };
+		5289747A1652F59F00F29555 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528974791652F59F00F29555 /* Foundation.framework */; };
+		5289747C1652F5A000F29555 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289747B1652F59F00F29555 /* CoreGraphics.framework */; };
+		528974821652F5A000F29555 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 528974801652F5A000F29555 /* InfoPlist.strings */; };
+		528974841652F5A000F29555 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 528974831652F5A000F29555 /* main.m */; };
+		528974881652F5A000F29555 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 528974871652F5A000F29555 /* AppDelegate.m */; };
+		5289748A1652F5A000F29555 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 528974891652F5A000F29555 /* Default.png */; };
+		5289748C1652F5A000F29555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5289748B1652F5A000F29555 /* Default@2x.png */; };
+		5289748E1652F5A000F29555 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5289748D1652F5A000F29555 /* Default-568h@2x.png */; };
+		528974911652F5A000F29555 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528974901652F5A000F29555 /* ViewController.m */; };
+		528974941652F5A000F29555 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528974921652F5A000F29555 /* ViewController.xib */; };
+		5289749C1652F5E500F29555 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5289749B1652F5E500F29555 /* BarChart.m */; };
+		528974A11652F67E00F29555 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528974A01652F67E00F29555 /* libsqlite3.0.dylib */; };
+		528974EF16558B6C00F29555 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 528974EE16558B6B00F29555 /* LedgerDB.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		528974731652F59F00F29555 /* BarChartV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarChartV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		528974771652F59F00F29555 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		528974791652F59F00F29555 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5289747B1652F59F00F29555 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5289747F1652F5A000F29555 /* BarChartV2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarChartV2-Info.plist"; sourceTree = "<group>"; };
+		528974811652F5A000F29555 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		528974831652F5A000F29555 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		528974851652F5A000F29555 /* BarChartV2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BarChartV2-Prefix.pch"; sourceTree = "<group>"; };
+		528974861652F5A000F29555 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		528974871652F5A000F29555 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		528974891652F5A000F29555 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5289748B1652F5A000F29555 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5289748D1652F5A000F29555 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5289748F1652F5A000F29555 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		528974901652F5A000F29555 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		528974931652F5A000F29555 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		5289749A1652F5E500F29555 /* BarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChart.h; sourceTree = "<group>"; };
+		5289749B1652F5E500F29555 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChart.m; sourceTree = "<group>"; };
+		528974A01652F67E00F29555 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		528974ED16558B6B00F29555 /* LedgerDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LedgerDB.h; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.h"; sourceTree = "<group>"; };
+		528974EE16558B6B00F29555 /* LedgerDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LedgerDB.m; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		528974701652F59F00F29555 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				528974A11652F67E00F29555 /* libsqlite3.0.dylib in Frameworks */,
+				528974781652F59F00F29555 /* UIKit.framework in Frameworks */,
+				5289747A1652F59F00F29555 /* Foundation.framework in Frameworks */,
+				5289747C1652F5A000F29555 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		528974681652F59F00F29555 = {
+			isa = PBXGroup;
+			children = (
+				5289747D1652F5A000F29555 /* BarChartV2 */,
+				528974761652F59F00F29555 /* Frameworks */,
+				528974741652F59F00F29555 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		528974741652F59F00F29555 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				528974731652F59F00F29555 /* BarChartV2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		528974761652F59F00F29555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				528974A01652F67E00F29555 /* libsqlite3.0.dylib */,
+				528974771652F59F00F29555 /* UIKit.framework */,
+				528974791652F59F00F29555 /* Foundation.framework */,
+				5289747B1652F59F00F29555 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5289747D1652F5A000F29555 /* BarChartV2 */ = {
+			isa = PBXGroup;
+			children = (
+				528974ED16558B6B00F29555 /* LedgerDB.h */,
+				528974EE16558B6B00F29555 /* LedgerDB.m */,
+				528974861652F5A000F29555 /* AppDelegate.h */,
+				528974871652F5A000F29555 /* AppDelegate.m */,
+				5289748F1652F5A000F29555 /* ViewController.h */,
+				528974901652F5A000F29555 /* ViewController.m */,
+				528974921652F5A000F29555 /* ViewController.xib */,
+				5289749A1652F5E500F29555 /* BarChart.h */,
+				5289749B1652F5E500F29555 /* BarChart.m */,
+				5289747E1652F5A000F29555 /* Supporting Files */,
+			);
+			path = BarChartV2;
+			sourceTree = "<group>";
+		};
+		5289747E1652F5A000F29555 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5289747F1652F5A000F29555 /* BarChartV2-Info.plist */,
+				528974801652F5A000F29555 /* InfoPlist.strings */,
+				528974831652F5A000F29555 /* main.m */,
+				528974851652F5A000F29555 /* BarChartV2-Prefix.pch */,
+				528974891652F5A000F29555 /* Default.png */,
+				5289748B1652F5A000F29555 /* Default@2x.png */,
+				5289748D1652F5A000F29555 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		528974721652F59F00F29555 /* BarChartV2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 528974971652F5A000F29555 /* Build configuration list for PBXNativeTarget "BarChartV2" */;
+			buildPhases = (
+				5289746F1652F59F00F29555 /* Sources */,
+				528974701652F59F00F29555 /* Frameworks */,
+				528974711652F59F00F29555 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarChartV2;
+			productName = BarChartV2;
+			productReference = 528974731652F59F00F29555 /* BarChartV2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5289746A1652F59F00F29555 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = test;
+			};
+			buildConfigurationList = 5289746D1652F59F00F29555 /* Build configuration list for PBXProject "BarChartV2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 528974681652F59F00F29555;
+			productRefGroup = 528974741652F59F00F29555 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				528974721652F59F00F29555 /* BarChartV2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		528974711652F59F00F29555 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				528974821652F5A000F29555 /* InfoPlist.strings in Resources */,
+				5289748A1652F5A000F29555 /* Default.png in Resources */,
+				5289748C1652F5A000F29555 /* Default@2x.png in Resources */,
+				5289748E1652F5A000F29555 /* Default-568h@2x.png in Resources */,
+				528974941652F5A000F29555 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5289746F1652F59F00F29555 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				528974841652F5A000F29555 /* main.m in Sources */,
+				528974881652F5A000F29555 /* AppDelegate.m in Sources */,
+				528974911652F5A000F29555 /* ViewController.m in Sources */,
+				5289749C1652F5E500F29555 /* BarChart.m in Sources */,
+				528974EF16558B6C00F29555 /* LedgerDB.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		528974801652F5A000F29555 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				528974811652F5A000F29555 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		528974921652F5A000F29555 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				528974931652F5A000F29555 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		528974951652F5A000F29555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		528974961652F5A000F29555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		528974981652F5A000F29555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BarChartV2/BarChartV2-Prefix.pch";
+				INFOPLIST_FILE = "BarChartV2/BarChartV2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		528974991652F5A000F29555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BarChartV2/BarChartV2-Prefix.pch";
+				INFOPLIST_FILE = "BarChartV2/BarChartV2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5289746D1652F59F00F29555 /* Build configuration list for PBXProject "BarChartV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				528974951652F5A000F29555 /* Debug */,
+				528974961652F5A000F29555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		528974971652F5A000F29555 /* Build configuration list for PBXNativeTarget "BarChartV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				528974981652F5A000F29555 /* Debug */,
+				528974991652F5A000F29555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5289746A1652F59F00F29555 /* Project object */;
+}

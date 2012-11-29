@@ -10,13 +10,14 @@
 
 
 @interface MainViewController ()
-
+    
 @end
 
 @implementation MainViewController
 @synthesize menuViewController;
 @synthesize navViewController;
 @synthesize ledgerContentViewController;
+@synthesize barViewControler;
 @synthesize menuButton;
 @synthesize mainView;
 
@@ -28,6 +29,7 @@
         menuViewController = [[MenuViewController alloc] initWithNibName:nil bundle: nil];
         navViewController = [[NavigationViewController alloc] initWithNibName:nil bundle:nil];
         ledgerContentViewController = [[LedgerContentViewController alloc] initWithNibName:nil bundle:nil];
+        barViewControler = [[ViewController alloc] initWithNibName:nil bundle:nil];
         
         CGRect screenBound = [[UIScreen mainScreen] bounds];
         CGSize screenSize = screenBound.size;
@@ -62,7 +64,35 @@
     
     
 }
-
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+}
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+- (void)awakeFromNib
+{
+    isShowingLandscapeView = NO;
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+- (void)orientationChanged:(NSNotification *)notification
+{
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation) && !isShowingLandscapeView) {
+        
+        [self performSegueWithIdentifier:@"DisplayBarView" sender:self];
+        isShowingLandscapeView = YES;
+        
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation) && isShowingLandscapeView)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        isShowingLandscapeView = NO;
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
