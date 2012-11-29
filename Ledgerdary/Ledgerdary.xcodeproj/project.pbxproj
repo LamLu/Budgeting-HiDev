@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F0D738616657ED50060A69C /* LedgerMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D738516657ED50060A69C /* LedgerMainViewController.m */; };
+		8F0D7389166589320060A69C /* LedgerOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D7388166589310060A69C /* LedgerOptionView.m */; };
+		8F0FBC5516659AC600968CED /* LedgerGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FBC5416659AC600968CED /* LedgerGraphViewController.m */; };
+		8F0FBC601665B1B400968CED /* LedgerAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FBC5F1665B1B400968CED /* LedgerAboutViewController.m */; };
+		8FF9D2D4165DEAB70058ACFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF9D2D3165DEAB70058ACFB /* UIKit.framework */; };
+		8FF9D2D6165DEAB70058ACFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF9D2D5165DEAB70058ACFB /* Foundation.framework */; };
+		8FF9D2D8165DEAB70058ACFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF9D2D7165DEAB70058ACFB /* CoreGraphics.framework */; };
+		8FF9D2DE165DEAB70058ACFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2DC165DEAB70058ACFB /* InfoPlist.strings */; };
+		8FF9D2E0165DEAB70058ACFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D2DF165DEAB70058ACFB /* main.m */; };
+		8FF9D2E4165DEAB70058ACFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D2E3165DEAB70058ACFB /* AppDelegate.m */; };
+		8FF9D2E6165DEAB70058ACFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2E5165DEAB70058ACFB /* Default.png */; };
+		8FF9D2E8165DEAB70058ACFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2E7165DEAB70058ACFB /* Default@2x.png */; };
+		8FF9D2EA165DEAB70058ACFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2E9165DEAB70058ACFB /* Default-568h@2x.png */; };
+		8FF9D2ED165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2EB165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard */; };
+		8FF9D2F0165DEAB70058ACFB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2EE165DEAB70058ACFB /* MainStoryboard_iPad.storyboard */; };
+		8FF9D2F3165DEAB70058ACFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D2F2165DEAB70058ACFB /* ViewController.m */; };
+		8FF9D2FA165DEAE80058ACFB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF9D2F9165DEAE80058ACFB /* libsqlite3.0.dylib */; };
+		8FF9D300165DEB5A0058ACFB /* LedgerPageBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */; };
+		8FF9D303165DEB720058ACFB /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D302165DEB720058ACFB /* LedgerDB.m */; };
+		8FF9D307165DEBC60058ACFB /* LedgerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D306165DEBC60058ACFB /* LedgerPageViewController.m */; };
+		8FF9D30A165DEC040058ACFB /* LedgerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D309165DEC040058ACFB /* LedgerCell.m */; };
+		8FF9D30D165DED800058ACFB /* LedgerContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D30C165DED800058ACFB /* LedgerContentViewController.m */; };
+		8FF9D317165DF29A0058ACFB /* LedgerSummaryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D316165DF29A0058ACFB /* LedgerSummaryTitleView.m */; };
+		8FF9D31A165DF9220058ACFB /* LedgerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D319165DF9210058ACFB /* LedgerScrollView.m */; };
+		8FF9D31D165E85990058ACFB /* LedgerDateRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D31C165E85990058ACFB /* LedgerDateRowView.m */; };
+		8FF9D320165E8FBB0058ACFB /* LedgerSummaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D31F165E8FBB0058ACFB /* LedgerSummaryContentView.m */; };
+		8FF9D323165EA3DB0058ACFB /* LedgerCategoryColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D322165EA3DB0058ACFB /* LedgerCategoryColumnView.m */; };
+		8FF9D38A165ECC630058ACFB /* LedgerTransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D389165ECC630058ACFB /* LedgerTransactionView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8F0D738416657ED40060A69C /* LedgerMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerMainViewController.h; sourceTree = "<group>"; };
+		8F0D738516657ED50060A69C /* LedgerMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerMainViewController.m; sourceTree = "<group>"; };
+		8F0D7387166589310060A69C /* LedgerOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerOptionView.h; sourceTree = "<group>"; };
+		8F0D7388166589310060A69C /* LedgerOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerOptionView.m; sourceTree = "<group>"; };
+		8F0FBC5316659AC600968CED /* LedgerGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerGraphViewController.h; sourceTree = "<group>"; };
+		8F0FBC5416659AC600968CED /* LedgerGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerGraphViewController.m; sourceTree = "<group>"; };
+		8F0FBC5E1665B1B400968CED /* LedgerAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerAboutViewController.h; sourceTree = "<group>"; };
+		8F0FBC5F1665B1B400968CED /* LedgerAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerAboutViewController.m; sourceTree = "<group>"; };
+		8FF9D2CF165DEAB70058ACFB /* Ledgerdary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledgerdary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FF9D2D3165DEAB70058ACFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8FF9D2D5165DEAB70058ACFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8FF9D2D7165DEAB70058ACFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8FF9D2DB165DEAB70058ACFB /* Ledgerdary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ledgerdary-Info.plist"; sourceTree = "<group>"; };
+		8FF9D2DD165DEAB70058ACFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8FF9D2DF165DEAB70058ACFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8FF9D2E1165DEAB70058ACFB /* Ledgerdary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ledgerdary-Prefix.pch"; sourceTree = "<group>"; };
+		8FF9D2E2165DEAB70058ACFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8FF9D2E3165DEAB70058ACFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8FF9D2E5165DEAB70058ACFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8FF9D2E7165DEAB70058ACFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8FF9D2E9165DEAB70058ACFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8FF9D2EC165DEAB70058ACFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		8FF9D2EF165DEAB70058ACFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		8FF9D2F1165DEAB70058ACFB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8FF9D2F2165DEAB70058ACFB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8FF9D2F9165DEAE80058ACFB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LedgerPageBackground.jpg; sourceTree = "<group>"; };
+		8FF9D301165DEB720058ACFB /* LedgerDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerDB.h; sourceTree = "<group>"; };
+		8FF9D302165DEB720058ACFB /* LedgerDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerDB.m; sourceTree = "<group>"; };
+		8FF9D305165DEBC60058ACFB /* LedgerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerPageViewController.h; sourceTree = "<group>"; };
+		8FF9D306165DEBC60058ACFB /* LedgerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerPageViewController.m; sourceTree = "<group>"; };
+		8FF9D308165DEC040058ACFB /* LedgerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCell.h; sourceTree = "<group>"; };
+		8FF9D309165DEC040058ACFB /* LedgerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCell.m; sourceTree = "<group>"; };
+		8FF9D30B165DED800058ACFB /* LedgerContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerContentViewController.h; sourceTree = "<group>"; };
+		8FF9D30C165DED800058ACFB /* LedgerContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerContentViewController.m; sourceTree = "<group>"; };
+		8FF9D315165DF29A0058ACFB /* LedgerSummaryTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerSummaryTitleView.h; sourceTree = "<group>"; };
+		8FF9D316165DF29A0058ACFB /* LedgerSummaryTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerSummaryTitleView.m; sourceTree = "<group>"; };
+		8FF9D318165DF9210058ACFB /* LedgerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerScrollView.h; sourceTree = "<group>"; };
+		8FF9D319165DF9210058ACFB /* LedgerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerScrollView.m; sourceTree = "<group>"; };
+		8FF9D31B165E85990058ACFB /* LedgerDateRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerDateRowView.h; sourceTree = "<group>"; };
+		8FF9D31C165E85990058ACFB /* LedgerDateRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerDateRowView.m; sourceTree = "<group>"; };
+		8FF9D31E165E8FBB0058ACFB /* LedgerSummaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerSummaryContentView.h; sourceTree = "<group>"; };
+		8FF9D31F165E8FBB0058ACFB /* LedgerSummaryContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerSummaryContentView.m; sourceTree = "<group>"; };
+		8FF9D321165EA3DA0058ACFB /* LedgerCategoryColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerCategoryColumnView.h; sourceTree = "<group>"; };
+		8FF9D322165EA3DB0058ACFB /* LedgerCategoryColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCategoryColumnView.m; sourceTree = "<group>"; };
+		8FF9D388165ECC620058ACFB /* LedgerTransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerTransactionView.h; sourceTree = "<group>"; };
+		8FF9D389165ECC630058ACFB /* LedgerTransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTransactionView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FF9D2CC165DEAB70058ACFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FF9D2FA165DEAE80058ACFB /* libsqlite3.0.dylib in Frameworks */,
+				8FF9D2D4165DEAB70058ACFB /* UIKit.framework in Frameworks */,
+				8FF9D2D6165DEAB70058ACFB /* Foundation.framework in Frameworks */,
+				8FF9D2D8165DEAB70058ACFB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8FF9D2C4165DEAB70058ACFB = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2D9165DEAB70058ACFB /* Ledgerdary */,
+				8FF9D2D2165DEAB70058ACFB /* Frameworks */,
+				8FF9D2D0165DEAB70058ACFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8FF9D2D0165DEAB70058ACFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2CF165DEAB70058ACFB /* Ledgerdary.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FF9D2D2165DEAB70058ACFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2F9165DEAE80058ACFB /* libsqlite3.0.dylib */,
+				8FF9D2D3165DEAB70058ACFB /* UIKit.framework */,
+				8FF9D2D5165DEAB70058ACFB /* Foundation.framework */,
+				8FF9D2D7165DEAB70058ACFB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FF9D2D9165DEAB70058ACFB /* Ledgerdary */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2FB165DEAF80058ACFB /* LedgerDataBase */,
+				8FF9D304165DEB850058ACFB /* Ledger Views */,
+				8FF9D2FE165DEB3F0058ACFB /* Background Images */,
+				8FF9D2E2165DEAB70058ACFB /* AppDelegate.h */,
+				8FF9D2E3165DEAB70058ACFB /* AppDelegate.m */,
+				8FF9D2EB165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard */,
+				8FF9D2EE165DEAB70058ACFB /* MainStoryboard_iPad.storyboard */,
+				8FF9D2F1165DEAB70058ACFB /* ViewController.h */,
+				8FF9D2F2165DEAB70058ACFB /* ViewController.m */,
+				8FF9D2DA165DEAB70058ACFB /* Supporting Files */,
+			);
+			path = Ledgerdary;
+			sourceTree = "<group>";
+		};
+		8FF9D2DA165DEAB70058ACFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2DB165DEAB70058ACFB /* Ledgerdary-Info.plist */,
+				8FF9D2DC165DEAB70058ACFB /* InfoPlist.strings */,
+				8FF9D2DF165DEAB70058ACFB /* main.m */,
+				8FF9D2E1165DEAB70058ACFB /* Ledgerdary-Prefix.pch */,
+				8FF9D2E5165DEAB70058ACFB /* Default.png */,
+				8FF9D2E7165DEAB70058ACFB /* Default@2x.png */,
+				8FF9D2E9165DEAB70058ACFB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8FF9D2FB165DEAF80058ACFB /* LedgerDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D301165DEB720058ACFB /* LedgerDB.h */,
+				8FF9D302165DEB720058ACFB /* LedgerDB.m */,
+			);
+			name = LedgerDataBase;
+			sourceTree = "<group>";
+		};
+		8FF9D2FE165DEB3F0058ACFB /* Background Images */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */,
+			);
+			name = "Background Images";
+			sourceTree = "<group>";
+		};
+		8FF9D304165DEB850058ACFB /* Ledger Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D308165DEC040058ACFB /* LedgerCell.h */,
+				8FF9D309165DEC040058ACFB /* LedgerCell.m */,
+				8F0D738416657ED40060A69C /* LedgerMainViewController.h */,
+				8F0D738516657ED50060A69C /* LedgerMainViewController.m */,
+				8F0D7387166589310060A69C /* LedgerOptionView.h */,
+				8F0D7388166589310060A69C /* LedgerOptionView.m */,
+				8FF9D305165DEBC60058ACFB /* LedgerPageViewController.h */,
+				8FF9D306165DEBC60058ACFB /* LedgerPageViewController.m */,
+				8FF9D30B165DED800058ACFB /* LedgerContentViewController.h */,
+				8FF9D30C165DED800058ACFB /* LedgerContentViewController.m */,
+				8FF9D318165DF9210058ACFB /* LedgerScrollView.h */,
+				8FF9D319165DF9210058ACFB /* LedgerScrollView.m */,
+				8FF9D311165DF1B40058ACFB /* SubViews */,
+				8F0FBC5E1665B1B400968CED /* LedgerAboutViewController.h */,
+				8F0FBC5F1665B1B400968CED /* LedgerAboutViewController.m */,
+				8F0FBC5316659AC600968CED /* LedgerGraphViewController.h */,
+				8F0FBC5416659AC600968CED /* LedgerGraphViewController.m */,
+			);
+			name = "Ledger Views";
+			sourceTree = "<group>";
+		};
+		8FF9D311165DF1B40058ACFB /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				8FF9D315165DF29A0058ACFB /* LedgerSummaryTitleView.h */,
+				8FF9D316165DF29A0058ACFB /* LedgerSummaryTitleView.m */,
+				8FF9D31B165E85990058ACFB /* LedgerDateRowView.h */,
+				8FF9D31C165E85990058ACFB /* LedgerDateRowView.m */,
+				8FF9D31E165E8FBB0058ACFB /* LedgerSummaryContentView.h */,
+				8FF9D31F165E8FBB0058ACFB /* LedgerSummaryContentView.m */,
+				8FF9D321165EA3DA0058ACFB /* LedgerCategoryColumnView.h */,
+				8FF9D322165EA3DB0058ACFB /* LedgerCategoryColumnView.m */,
+				8FF9D388165ECC620058ACFB /* LedgerTransactionView.h */,
+				8FF9D389165ECC630058ACFB /* LedgerTransactionView.m */,
+			);
+			name = SubViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FF9D2CE165DEAB70058ACFB /* Ledgerdary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FF9D2F6165DEAB70058ACFB /* Build configuration list for PBXNativeTarget "Ledgerdary" */;
+			buildPhases = (
+				8FF9D2CB165DEAB70058ACFB /* Sources */,
+				8FF9D2CC165DEAB70058ACFB /* Frameworks */,
+				8FF9D2CD165DEAB70058ACFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ledgerdary;
+			productName = Ledgerdary;
+			productReference = 8FF9D2CF165DEAB70058ACFB /* Ledgerdary.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FF9D2C6165DEAB70058ACFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "YenHsiang Wang";
+			};
+			buildConfigurationList = 8FF9D2C9165DEAB70058ACFB /* Build configuration list for PBXProject "Ledgerdary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8FF9D2C4165DEAB70058ACFB;
+			productRefGroup = 8FF9D2D0165DEAB70058ACFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FF9D2CE165DEAB70058ACFB /* Ledgerdary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FF9D2CD165DEAB70058ACFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FF9D2DE165DEAB70058ACFB /* InfoPlist.strings in Resources */,
+				8FF9D2E6165DEAB70058ACFB /* Default.png in Resources */,
+				8FF9D2E8165DEAB70058ACFB /* Default@2x.png in Resources */,
+				8FF9D2EA165DEAB70058ACFB /* Default-568h@2x.png in Resources */,
+				8FF9D2ED165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard in Resources */,
+				8FF9D2F0165DEAB70058ACFB /* MainStoryboard_iPad.storyboard in Resources */,
+				8FF9D300165DEB5A0058ACFB /* LedgerPageBackground.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FF9D2CB165DEAB70058ACFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FF9D2E0165DEAB70058ACFB /* main.m in Sources */,
+				8FF9D2E4165DEAB70058ACFB /* AppDelegate.m in Sources */,
+				8FF9D2F3165DEAB70058ACFB /* ViewController.m in Sources */,
+				8FF9D303165DEB720058ACFB /* LedgerDB.m in Sources */,
+				8FF9D307165DEBC60058ACFB /* LedgerPageViewController.m in Sources */,
+				8FF9D30A165DEC040058ACFB /* LedgerCell.m in Sources */,
+				8FF9D30D165DED800058ACFB /* LedgerContentViewController.m in Sources */,
+				8FF9D317165DF29A0058ACFB /* LedgerSummaryTitleView.m in Sources */,
+				8FF9D31A165DF9220058ACFB /* LedgerScrollView.m in Sources */,
+				8FF9D31D165E85990058ACFB /* LedgerDateRowView.m in Sources */,
+				8FF9D320165E8FBB0058ACFB /* LedgerSummaryContentView.m in Sources */,
+				8FF9D323165EA3DB0058ACFB /* LedgerCategoryColumnView.m in Sources */,
+				8FF9D38A165ECC630058ACFB /* LedgerTransactionView.m in Sources */,
+				8F0D738616657ED50060A69C /* LedgerMainViewController.m in Sources */,
+				8F0D7389166589320060A69C /* LedgerOptionView.m in Sources */,
+				8F0FBC5516659AC600968CED /* LedgerGraphViewController.m in Sources */,
+				8F0FBC601665B1B400968CED /* LedgerAboutViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8FF9D2DC165DEAB70058ACFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FF9D2DD165DEAB70058ACFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8FF9D2EB165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FF9D2EC165DEAB70058ACFB /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8FF9D2EE165DEAB70058ACFB /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FF9D2EF165DEAB70058ACFB /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8FF9D2F4165DEAB70058ACFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FF9D2F5165DEAB70058ACFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FF9D2F7165DEAB70058ACFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ledgerdary/Ledgerdary-Prefix.pch";
+				INFOPLIST_FILE = "Ledgerdary/Ledgerdary-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8FF9D2F8165DEAB70058ACFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ledgerdary/Ledgerdary-Prefix.pch";
+				INFOPLIST_FILE = "Ledgerdary/Ledgerdary-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FF9D2C9165DEAB70058ACFB /* Build configuration list for PBXProject "Ledgerdary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FF9D2F4165DEAB70058ACFB /* Debug */,
+				8FF9D2F5165DEAB70058ACFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FF9D2F6165DEAB70058ACFB /* Build configuration list for PBXNativeTarget "Ledgerdary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FF9D2F7165DEAB70058ACFB /* Debug */,
+				8FF9D2F8165DEAB70058ACFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FF9D2C6165DEAB70058ACFB /* Project object */;
+}
