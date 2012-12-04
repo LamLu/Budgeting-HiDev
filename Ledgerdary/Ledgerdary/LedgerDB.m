@@ -151,9 +151,11 @@
         if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
             success = false;
             [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO BUDGET TABLE", budget]];
+            NSLog(@"CANNOT INSERT BUDGET");
         }
         else {
             success = true;
+            NSLog(@"INSETED NEW BUDGET");
         }
     }
 }
@@ -331,7 +333,11 @@
     NSString *select_stmt = [NSString stringWithFormat:@"SELECT Budget FROM BUDGET WHERE DATE = '%@'", dateString];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     if (sqlite3_step(select) == SQLITE_ROW) {
+        //return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
+        NSLog(@"GET BUDGET: %@", dateString );
+        NSLog(@"GET BUDGET AMOUNT: %@", [NSNumber numberWithFloat:sqlite3_column_double(select, 0)]);
         return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
+        
     }
     else {
         return NULL;//[NSNumber numberWithInt:0];
@@ -456,9 +462,25 @@
     sqlite3_stmt *select = nil;
     NSString *select_stmt = [NSString stringWithFormat:@"SELECT * FROM TRANSACTIONS"];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
-    
+    NSLog(@"\t\t\t\ TRANSACTIONS");
     while (sqlite3_step(select) == SQLITE_ROW) {
-        NSLog(@"\nC1\t\tC2\t\n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 2));
+        NSLog(@"\nTIME \t CID \t \tAMOUNT\t\n%s\t%s\t%s\t", sqlite3_column_text(select, 0),
+               sqlite3_column_text(select, 1), sqlite3_column_text(select, 2));
+    }
+    
+    select_stmt = [NSString stringWithFormat:@"Select * from BUDGET"];
+    sqlite3_prepare(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
+    NSLog(@"\t\t\t\ BUDGET");
+    while (sqlite3_step(select) == SQLITE_ROW) {
+        NSLog(@"\nDATE \tBUDGET \n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 1));
+    }
+    
+    
+    select_stmt = [NSString stringWithFormat:@"Select * from CATEGORY"];
+    sqlite3_prepare(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
+    NSLog(@"\t\t\t\ CATEGORY");
+    while (sqlite3_step(select) == SQLITE_ROW) {
+        NSLog(@"\nCID \tNAME \n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 1));
     }
 }
 
