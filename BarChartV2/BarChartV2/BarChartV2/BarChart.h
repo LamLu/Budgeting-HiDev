@@ -11,6 +11,7 @@
 @protocol BarChartDataSource 
 -(NSArray*)dataForBarChart:(BarChart *)sender;
 -(NSArray*)amountOfTransactionForBarChar:(BarChart *)sender;
+-(NSMutableArray*)colorOfBarChart:(BarChart *)sender;
 @end
 @interface BarChart : UIView
 @property (nonatomic,weak) IBOutlet id <BarChartDataSource> dataSource;

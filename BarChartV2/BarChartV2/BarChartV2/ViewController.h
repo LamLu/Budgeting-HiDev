@@ -14,4 +14,5 @@
 }
 @property (nonatomic) NSArray *transaction;
 @property (nonatomic) NSArray *amountOfTransaction;
+@property (nonatomic) NSMutableArray *colorArray;
 @end

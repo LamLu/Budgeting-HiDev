@@ -57,7 +57,7 @@
         [self createBudgetTable];
         [self createTransactionTable];
         
-        [self forTesting];
+        //[self forTesting];
     }
     
     return self;
@@ -420,7 +420,7 @@
 }
 
 -(void) showErrMsg: (NSString *) msg{
-    NSLog(@"Error: failed to %@ due to %s", msg, sqlite3_errmsg(ledgerDB));
+    //NSLog(@"Error: failed to %@ due to %s", msg, sqlite3_errmsg(ledgerDB));
 }
 
 //for debugging
@@ -451,7 +451,8 @@
     [self insertCategory:@"Lunch"];
     [self insertCategory:@"Dinner"];
     [self insertCategory:@"Transportation"];
-    
+    [self insertCategory:@"Coffee"];
+    [self insertCategory:@"Tea"];
     [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:30.0]];
     [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:30.0]];
     [self insertBudget:[gregorian dateFromComponents:comp] andBudget:[NSNumber numberWithFloat:50.0]];
@@ -493,7 +494,7 @@
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     
     while (sqlite3_step(select) == SQLITE_ROW) {
-        NSLog(@"\nC1\t\tC2\t\n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 2));
+        //NSLog(@"\nC1\t\tC2\t\n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 2));
     }
     //NSLog(@"\nTRANSACTIONS:\n%@", [self getCategories]);
 }

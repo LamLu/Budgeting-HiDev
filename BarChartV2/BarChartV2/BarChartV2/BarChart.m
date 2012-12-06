@@ -41,10 +41,12 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    NSLog(@"Heigh of Bar = %f, width of Bar = %f",self.frame.size.height,self.frame.size.width);
     NSArray *transactions = [self.dataSource dataForBarChart:self]; //delegate from view controller
     //NSArray *transactions = [NSArray arrayWithObjects:@"Breakfast",@"Lunch",@"Dinner",@"Transporation", nil];
     NSArray *amountOfTransaction = [self.dataSource amountOfTransactionForBarChar:self];
-    NSLog(@"%@",amountOfTransaction);
+    NSMutableArray *colorArray = [self.dataSource colorOfBarChart:self];
+    //NSLog(@"%@",amountOfTransaction);
     /*
     NSArray *amountOfTransaction = [[NSArray alloc] initWithObjects:
                                   [NSNumber numberWithFloat: 30],
@@ -97,11 +99,14 @@
     
     for (int i = 0; count > i; i++)
     {
+        const CGFloat* RGBComponets = CGColorGetComponents([[colorArray objectAtIndex:i] CGColor]);
+        CGContextSetRGBFillColor(ctx, RGBComponets[0], RGBComponets[1], RGBComponets[2], 1.0);
+        
         float heightOfBar = -[amountOfTransaction[i] floatValue] * heighOfYAxis / largestNumberInArray;
                 CGRect bar = CGRectMake(startpoint - (widthOfBar/2), self.bounds.size.height - offset, widthOfBar, heightOfBar);
         CGContextFillRect(ctx, bar);
         //NSString *text = transactions[i];
-        CGPoint transactionPointInBar = CGPointMake(startpoint - (widthOfBar/2), self.bounds.size.height - (offset) + offsetFromLine);
+        //CGPoint transactionPointInBar = CGPointMake(startpoint - (widthOfBar/2), self.bounds.size.height - (offset) + offsetFromLine);
         //[text drawAtPoint:test forWidth:widthOfBar * 2 withFont:myFont minFontSize:minFont actualFontSize:&maxFont lineBreakMode:NSLineBreakByClipping baselineAdjustment:UIBaselineAdjustmentAlignCenters];
         if ([amountOfTransaction[i] floatValue]  != 0)
         {
@@ -111,7 +116,7 @@
         
         }
         
-        
+        /*
         const char* texts = [transactions[i] UTF8String];
         CGContextSelectFont(ctx, "Helvetica", maxFont, kCGEncodingMacRoman);
         //CGContextSetTextDrawingMode(ctx, kCGTextStroke);
@@ -124,7 +129,7 @@
         
         CGContextSetTextMatrix(ctx, xform);
         CGContextShowTextAtPoint(ctx, transactionPointInBar.x, transactionPointInBar.y + 15, texts, strlen(texts));
-        
+        */
         //CGContextShowTextAtPoint(ctx, 10, 300, texts, strlen(texts));
         //[amountValue drawAtPoint:value forWidth:widthOfBar withFont:myFont minFontSize:minFont actualFontSize:&maxFont lineBreakMode:NSLineBreakByClipping baselineAdjustment:UIBaselineAdjustmentAlignCenters];
 
