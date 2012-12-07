@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5289752E165B3BB000F29555 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289752D165B3BB000F29555 /* UIKit.framework */; };
+		52897530165B3BB000F29555 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289752F165B3BB000F29555 /* Foundation.framework */; };
+		52897532165B3BB000F29555 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52897531165B3BB000F29555 /* CoreGraphics.framework */; };
+		52897538165B3BB000F29555 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52897536165B3BB000F29555 /* InfoPlist.strings */; };
+		5289753A165B3BB000F29555 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52897539165B3BB000F29555 /* main.m */; };
+		5289753E165B3BB000F29555 /* PieViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5289753D165B3BB000F29555 /* PieViewAppDelegate.m */; };
+		52897540165B3BB000F29555 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5289753F165B3BB000F29555 /* Default.png */; };
+		52897542165B3BB000F29555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52897541165B3BB000F29555 /* Default@2x.png */; };
+		52897544165B3BB000F29555 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52897543165B3BB000F29555 /* Default-568h@2x.png */; };
+		52897547165B3BB000F29555 /* PieViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52897546165B3BB000F29555 /* PieViewViewController.m */; };
+		5289754A165B3BB000F29555 /* PieViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52897548165B3BB000F29555 /* PieViewViewController.xib */; };
+		52897552165B3C9B00F29555 /* PieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52897551165B3C9B00F29555 /* PieView.m */; };
+		528975551664860F00F29555 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 528975541664860F00F29555 /* LedgerDB.m */; };
+		5289755716648C0500F29555 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289755616648C0500F29555 /* libsqlite3.0.dylib */; };
+		5289755A1667F9D300F29555 /* TransactionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 528975591667F9D300F29555 /* TransactionTextView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52897529165B3BAF00F29555 /* Pie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5289752D165B3BB000F29555 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5289752F165B3BB000F29555 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52897531165B3BB000F29555 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		52897535165B3BB000F29555 /* Pie-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pie-Info.plist"; sourceTree = "<group>"; };
+		52897537165B3BB000F29555 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52897539165B3BB000F29555 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5289753B165B3BB000F29555 /* Pie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pie-Prefix.pch"; sourceTree = "<group>"; };
+		5289753C165B3BB000F29555 /* PieViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieViewAppDelegate.h; sourceTree = "<group>"; };
+		5289753D165B3BB000F29555 /* PieViewAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieViewAppDelegate.m; sourceTree = "<group>"; };
+		5289753F165B3BB000F29555 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		52897541165B3BB000F29555 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		52897543165B3BB000F29555 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		52897545165B3BB000F29555 /* PieViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieViewViewController.h; sourceTree = "<group>"; };
+		52897546165B3BB000F29555 /* PieViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieViewViewController.m; sourceTree = "<group>"; };
+		52897549165B3BB000F29555 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PieViewViewController.xib; sourceTree = "<group>"; };
+		52897550165B3C9B00F29555 /* PieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieView.h; sourceTree = "<group>"; };
+		52897551165B3C9B00F29555 /* PieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieView.m; sourceTree = "<group>"; };
+		528975531664860F00F29555 /* LedgerDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LedgerDB.h; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.h"; sourceTree = "<group>"; };
+		528975541664860F00F29555 /* LedgerDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LedgerDB.m; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.m"; sourceTree = "<group>"; };
+		5289755616648C0500F29555 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		528975581667F9D300F29555 /* TransactionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTextView.h; sourceTree = "<group>"; };
+		528975591667F9D300F29555 /* TransactionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTextView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52897526165B3BAF00F29555 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5289755716648C0500F29555 /* libsqlite3.0.dylib in Frameworks */,
+				5289752E165B3BB000F29555 /* UIKit.framework in Frameworks */,
+				52897530165B3BB000F29555 /* Foundation.framework in Frameworks */,
+				52897532165B3BB000F29555 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5289751E165B3BAF00F29555 = {
+			isa = PBXGroup;
+			children = (
+				5289755616648C0500F29555 /* libsqlite3.0.dylib */,
+				52897533165B3BB000F29555 /* Pie */,
+				5289752C165B3BB000F29555 /* Frameworks */,
+				5289752A165B3BAF00F29555 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5289752A165B3BAF00F29555 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52897529165B3BAF00F29555 /* Pie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5289752C165B3BB000F29555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5289752D165B3BB000F29555 /* UIKit.framework */,
+				5289752F165B3BB000F29555 /* Foundation.framework */,
+				52897531165B3BB000F29555 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52897533165B3BB000F29555 /* Pie */ = {
+			isa = PBXGroup;
+			children = (
+				5289753C165B3BB000F29555 /* PieViewAppDelegate.h */,
+				5289753D165B3BB000F29555 /* PieViewAppDelegate.m */,
+				52897545165B3BB000F29555 /* PieViewViewController.h */,
+				52897546165B3BB000F29555 /* PieViewViewController.m */,
+				528975531664860F00F29555 /* LedgerDB.h */,
+				528975541664860F00F29555 /* LedgerDB.m */,
+				52897550165B3C9B00F29555 /* PieView.h */,
+				52897551165B3C9B00F29555 /* PieView.m */,
+				528975581667F9D300F29555 /* TransactionTextView.h */,
+				528975591667F9D300F29555 /* TransactionTextView.m */,
+				52897548165B3BB000F29555 /* PieViewViewController.xib */,
+				52897534165B3BB000F29555 /* Supporting Files */,
+			);
+			path = Pie;
+			sourceTree = "<group>";
+		};
+		52897534165B3BB000F29555 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52897535165B3BB000F29555 /* Pie-Info.plist */,
+				52897536165B3BB000F29555 /* InfoPlist.strings */,
+				52897539165B3BB000F29555 /* main.m */,
+				5289753B165B3BB000F29555 /* Pie-Prefix.pch */,
+				5289753F165B3BB000F29555 /* Default.png */,
+				52897541165B3BB000F29555 /* Default@2x.png */,
+				52897543165B3BB000F29555 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52897528165B3BAF00F29555 /* Pie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5289754D165B3BB000F29555 /* Build configuration list for PBXNativeTarget "Pie" */;
+			buildPhases = (
+				52897525165B3BAF00F29555 /* Sources */,
+				52897526165B3BAF00F29555 /* Frameworks */,
+				52897527165B3BAF00F29555 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pie;
+			productName = Pie;
+			productReference = 52897529165B3BAF00F29555 /* Pie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52897520165B3BAF00F29555 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PieView;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = test;
+			};
+			buildConfigurationList = 52897523165B3BAF00F29555 /* Build configuration list for PBXProject "Pie" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5289751E165B3BAF00F29555;
+			productRefGroup = 5289752A165B3BAF00F29555 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52897528165B3BAF00F29555 /* Pie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52897527165B3BAF00F29555 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52897538165B3BB000F29555 /* InfoPlist.strings in Resources */,
+				52897540165B3BB000F29555 /* Default.png in Resources */,
+				52897542165B3BB000F29555 /* Default@2x.png in Resources */,
+				52897544165B3BB000F29555 /* Default-568h@2x.png in Resources */,
+				5289754A165B3BB000F29555 /* PieViewViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52897525165B3BAF00F29555 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5289753A165B3BB000F29555 /* main.m in Sources */,
+				5289753E165B3BB000F29555 /* PieViewAppDelegate.m in Sources */,
+				52897547165B3BB000F29555 /* PieViewViewController.m in Sources */,
+				52897552165B3C9B00F29555 /* PieView.m in Sources */,
+				528975551664860F00F29555 /* LedgerDB.m in Sources */,
+				5289755A1667F9D300F29555 /* TransactionTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52897536165B3BB000F29555 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52897537165B3BB000F29555 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52897548165B3BB000F29555 /* PieViewViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52897549165B3BB000F29555 /* en */,
+			);
+			name = PieViewViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5289754B165B3BB000F29555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5289754C165B3BB000F29555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5289754E165B3BB000F29555 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pie/Pie-Prefix.pch";
+				INFOPLIST_FILE = "Pie/Pie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5289754F165B3BB000F29555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pie/Pie-Prefix.pch";
+				INFOPLIST_FILE = "Pie/Pie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52897523165B3BAF00F29555 /* Build configuration list for PBXProject "Pie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5289754B165B3BB000F29555 /* Debug */,
+				5289754C165B3BB000F29555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5289754D165B3BB000F29555 /* Build configuration list for PBXNativeTarget "Pie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5289754E165B3BB000F29555 /* Debug */,
+				5289754F165B3BB000F29555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52897520165B3BAF00F29555 /* Project object */;
+}

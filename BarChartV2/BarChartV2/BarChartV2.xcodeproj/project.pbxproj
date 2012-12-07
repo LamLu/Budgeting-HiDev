@@ -21,7 +21,7 @@
 		5289749C1652F5E500F29555 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5289749B1652F5E500F29555 /* BarChart.m */; };
 		528974A11652F67E00F29555 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528974A01652F67E00F29555 /* libsqlite3.0.dylib */; };
 		528974EF16558B6C00F29555 /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 528974EE16558B6B00F29555 /* LedgerDB.m */; };
-		52C42530166F0BB700778111 /* TransactionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C4252F166F0BB700778111 /* TransactionTextView.m */; };
+		529907001671724F00919731 /* TransactionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 529906FF1671724F00919731 /* TransactionTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,8 @@
 		528974A01652F67E00F29555 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		528974ED16558B6B00F29555 /* LedgerDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LedgerDB.h; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.h"; sourceTree = "<group>"; };
 		528974EE16558B6B00F29555 /* LedgerDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LedgerDB.m; path = "../../../../Budgeting-HiDev/LedgerView/LedgerDB.m"; sourceTree = "<group>"; };
-		52C4252E166F0BB700778111 /* TransactionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTextView.h; path = ../../Pie/Pie/TransactionTextView.h; sourceTree = "<group>"; };
-		52C4252F166F0BB700778111 /* TransactionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTextView.m; path = ../../Pie/Pie/TransactionTextView.m; sourceTree = "<group>"; };
+		529906FE1671724F00919731 /* TransactionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTextView.h; sourceTree = "<group>"; };
+		529906FF1671724F00919731 /* TransactionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,8 @@
 				528974871652F5A000F29555 /* AppDelegate.m */,
 				5289748F1652F5A000F29555 /* ViewController.h */,
 				528974901652F5A000F29555 /* ViewController.m */,
-				52C4252E166F0BB700778111 /* TransactionTextView.h */,
-				52C4252F166F0BB700778111 /* TransactionTextView.m */,
+				529906FE1671724F00919731 /* TransactionTextView.h */,
+				529906FF1671724F00919731 /* TransactionTextView.m */,
 				528974921652F5A000F29555 /* ViewController.xib */,
 				5289749A1652F5E500F29555 /* BarChart.h */,
 				5289749B1652F5E500F29555 /* BarChart.m */,
@@ -197,7 +197,7 @@
 				528974911652F5A000F29555 /* ViewController.m in Sources */,
 				5289749C1652F5E500F29555 /* BarChart.m in Sources */,
 				528974EF16558B6C00F29555 /* LedgerDB.m in Sources */,
-				52C42530166F0BB700778111 /* TransactionTextView.m in Sources */,
+				529907001671724F00919731 /* TransactionTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
