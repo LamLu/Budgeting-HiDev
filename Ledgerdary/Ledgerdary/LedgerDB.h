@@ -52,4 +52,6 @@
 // Close database
 -(void) closeDB;
 
+// Delete database
+-(void) deleteDB;
 @end

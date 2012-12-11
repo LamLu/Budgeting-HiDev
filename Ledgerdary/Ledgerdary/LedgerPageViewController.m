@@ -23,6 +23,7 @@
     if (self) {
         ledgerDB = aLedgerDB;
         [self.view setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"LedgerPageBackground.jpg"]]];
+           // imageNamed:@"dark.jpg"]]];
         [self goToDate:[NSDate date]];
         /*
         NSDictionary *option = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin] forKey:UIPageViewControllerOptionSpineLocationKey];
@@ -135,7 +136,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) test {
-    NSLog(@"Called from subview");
-}
+
 @end

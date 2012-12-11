@@ -24,7 +24,6 @@
 		8FF9D2F0165DEAB70058ACFB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2EE165DEAB70058ACFB /* MainStoryboard_iPad.storyboard */; };
 		8FF9D2F3165DEAB70058ACFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D2F2165DEAB70058ACFB /* ViewController.m */; };
 		8FF9D2FA165DEAE80058ACFB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF9D2F9165DEAE80058ACFB /* libsqlite3.0.dylib */; };
-		8FF9D300165DEB5A0058ACFB /* LedgerPageBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */; };
 		8FF9D303165DEB720058ACFB /* LedgerDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D302165DEB720058ACFB /* LedgerDB.m */; };
 		8FF9D307165DEBC60058ACFB /* LedgerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D306165DEBC60058ACFB /* LedgerPageViewController.m */; };
 		8FF9D30A165DEC040058ACFB /* LedgerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D309165DEC040058ACFB /* LedgerCell.m */; };
@@ -35,6 +34,7 @@
 		8FF9D320165E8FBB0058ACFB /* LedgerSummaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D31F165E8FBB0058ACFB /* LedgerSummaryContentView.m */; };
 		8FF9D323165EA3DB0058ACFB /* LedgerCategoryColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D322165EA3DB0058ACFB /* LedgerCategoryColumnView.m */; };
 		8FF9D38A165ECC630058ACFB /* LedgerTransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9D389165ECC630058ACFB /* LedgerTransactionView.m */; };
+		FFCEF88D1671508E003C2749 /* LedgerPageBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFCEF88C1671508E003C2749 /* LedgerPageBackground.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,6 @@
 		8FF9D2F1165DEAB70058ACFB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8FF9D2F2165DEAB70058ACFB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8FF9D2F9165DEAE80058ACFB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LedgerPageBackground.jpg; sourceTree = "<group>"; };
 		8FF9D301165DEB720058ACFB /* LedgerDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerDB.h; sourceTree = "<group>"; };
 		8FF9D302165DEB720058ACFB /* LedgerDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerDB.m; sourceTree = "<group>"; };
 		8FF9D305165DEBC60058ACFB /* LedgerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerPageViewController.h; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		8FF9D322165EA3DB0058ACFB /* LedgerCategoryColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerCategoryColumnView.m; sourceTree = "<group>"; };
 		8FF9D388165ECC620058ACFB /* LedgerTransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LedgerTransactionView.h; sourceTree = "<group>"; };
 		8FF9D389165ECC630058ACFB /* LedgerTransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTransactionView.m; sourceTree = "<group>"; };
+		FFCEF88C1671508E003C2749 /* LedgerPageBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LedgerPageBackground.jpg; path = images/LedgerPageBackground.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 		8FF9D2FE165DEB3F0058ACFB /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
-				8FF9D2FF165DEB5A0058ACFB /* LedgerPageBackground.jpg */,
+				FFCEF88C1671508E003C2749 /* LedgerPageBackground.jpg */,
 			);
 			name = "Background Images";
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				8FF9D2EA165DEAB70058ACFB /* Default-568h@2x.png in Resources */,
 				8FF9D2ED165DEAB70058ACFB /* MainStoryboard_iPhone.storyboard in Resources */,
 				8FF9D2F0165DEAB70058ACFB /* MainStoryboard_iPad.storyboard in Resources */,
-				8FF9D300165DEB5A0058ACFB /* LedgerPageBackground.jpg in Resources */,
+				FFCEF88D1671508E003C2749 /* LedgerPageBackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

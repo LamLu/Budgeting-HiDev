@@ -34,15 +34,16 @@
     
     success = true;
     if (self = [super init]) {
+        
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
-        NSString *dbPath = [docPath stringByAppendingPathComponent:@"contacts.sqlite"];
+        NSString *dbPath = [docPath stringByAppendingPathComponent:@"ledger.sqlite"];
         
         const char *dbPathString = [dbPath UTF8String];
         
         //create db here
         if (sqlite3_open(dbPathString, &ledgerDB) == SQLITE_OK) {
-            NSLog(@"Ledger DB created");
+            NSLog(@"Ledger DB opened");
         } else {
             NSLog(@"Error: failed to CREATE/OPEN database due to %s.", sqlite3_errmsg(ledgerDB));
         }
@@ -151,11 +152,11 @@
         if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
             success = false;
             [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO BUDGET TABLE", budget]];
-            NSLog(@"CANNOT INSERT BUDGET");
+           // NSLog(@"CANNOT INSERT BUDGET");
         }
         else {
             success = true;
-            NSLog(@"INSETED NEW BUDGET");
+            //NSLog(@"INSETED NEW BUDGET");
         }
     }
 }
@@ -334,8 +335,8 @@
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     if (sqlite3_step(select) == SQLITE_ROW) {
         //return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
-        NSLog(@"GET BUDGET: %@", dateString );
-        NSLog(@"GET BUDGET AMOUNT: %@", [NSNumber numberWithFloat:sqlite3_column_double(select, 0)]);
+        //NSLog(@"GET BUDGET: %@", dateString );
+       // NSLog(@"GET BUDGET AMOUNT: %@", [NSNumber numberWithFloat:sqlite3_column_double(select, 0)]);
         return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
         
     }
@@ -459,6 +460,7 @@
 
 //for debugging
 -(void) display {
+    /*
     sqlite3_stmt *select = nil;
     NSString *select_stmt = [NSString stringWithFormat:@"SELECT * FROM TRANSACTIONS"];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
@@ -482,7 +484,22 @@
     while (sqlite3_step(select) == SQLITE_ROW) {
         NSLog(@"\nCID \tNAME \n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 1));
     }
+     */
 }
 
+
+-(void) deleteDB
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:@"contacts.sqlite"];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+        NSLog(@"Deleted DATABASE");
+    }
+    
+}
+ 
 
 @end

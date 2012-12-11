@@ -82,6 +82,7 @@
 
 -(void) showMenu {
     if (![self menuDisplayed]) {
+        
         [self setMenuDisplayed: true];
         [UIView animateWithDuration:0.5 animations:^
          {
@@ -90,6 +91,7 @@
              self.menuButton.frame = CGRectOffset(self.menuButton.frame, 50, 0);
          }completion: ^(BOOL finished)
          {
+             
          }];
         [UIView commitAnimations];
     }
@@ -99,16 +101,19 @@
 }
 
 -(void) closeMenu{
-    [self setMenuDisplayed: false];
-    [UIView animateWithDuration:.5 animations:^
-     {
-         //self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, 0, 0);
-         self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, -50, 0);
-         self.menuButton.frame = CGRectOffset(self.menuButton.frame, -50, 0);
-     }completion: ^(BOOL finished)
-     {
-     }];
-    [UIView commitAnimations];
+    
+    if ([self menuDisplayed])
+    {
+        [self setMenuDisplayed: false];
+        [UIView animateWithDuration:.5 animations:^
+        {
+            self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, -50, 0);
+            self.menuButton.frame = CGRectOffset(self.menuButton.frame, -50, 0);
+        }completion: ^(BOOL finished)
+        {
+        }];
+        [UIView commitAnimations];
+    }
 }
 
 -(void) changeViewController: (NSString *) viewControllerName {
