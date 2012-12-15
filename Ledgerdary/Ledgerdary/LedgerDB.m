@@ -34,14 +34,9 @@
     
     success = true;
     if (self = [super init]) {
-        
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
-<<<<<<< HEAD
-        NSString *dbPath = [docPath stringByAppendingPathComponent:@"ledger.sqlite"];
-=======
         NSString *dbPath = [docPath stringByAppendingPathComponent:@"Ledgerdary.sqlite"];
->>>>>>> Delete unuse functions and classes
         
         const char *dbPathString = [dbPath UTF8String];
         
@@ -156,17 +151,9 @@
         if (sqlite3_exec(ledgerDB, [insert_stmt UTF8String], NULL, NULL, &error) != SQLITE_OK) {
             success = false;
             [self showErrMsg: [NSString stringWithFormat:@"INSERT %@ INTO BUDGET TABLE", budget]];
-<<<<<<< HEAD
-           // NSLog(@"CANNOT INSERT BUDGET");
         }
         else {
             success = true;
-            //NSLog(@"INSETED NEW BUDGET");
-=======
-        }
-        else {
-            success = true;
->>>>>>> Delete unuse functions and classes
         }
     }
 }
@@ -345,11 +332,6 @@
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
     if (sqlite3_step(select) == SQLITE_ROW) {
         //return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
-<<<<<<< HEAD
-        //NSLog(@"GET BUDGET: %@", dateString );
-       // NSLog(@"GET BUDGET AMOUNT: %@", [NSNumber numberWithFloat:sqlite3_column_double(select, 0)]);
-=======
->>>>>>> Delete unuse functions and classes
         return [NSNumber numberWithFloat: sqlite3_column_double(select, 0)];
     }
     else {
@@ -472,7 +454,6 @@
 
 //for debugging
 -(void) display {
-    /*
     sqlite3_stmt *select = nil;
     NSString *select_stmt = [NSString stringWithFormat:@"SELECT * FROM TRANSACTIONS"];
     sqlite3_prepare_v2(ledgerDB, [select_stmt UTF8String], -1, &select, NULL);
@@ -493,22 +474,7 @@
     while (sqlite3_step(select) == SQLITE_ROW) {
         NSLog(@"\nCID \tNAME \n%s\t%s\t", sqlite3_column_text(select, 0), sqlite3_column_text(select, 1));
     }
-     */
 }
 
-
--(void) deleteDB
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:@"contacts.sqlite"];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
-        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
-        NSLog(@"Deleted DATABASE");
-    }
-    
-}
- 
 
 @end

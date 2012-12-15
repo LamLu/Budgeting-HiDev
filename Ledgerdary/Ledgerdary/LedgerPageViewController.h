@@ -18,6 +18,6 @@
 - (id) initWithLedgerDB: (LedgerDB *) aLedgerDB;
 - (NSMutableArray *) getMonthArray: (NSDate *) aDay;
 - (void) goToDate:(NSDate *) date;
-
+- (void) test;
 
 @end

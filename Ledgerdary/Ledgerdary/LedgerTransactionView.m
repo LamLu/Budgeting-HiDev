@@ -48,20 +48,12 @@
         [ledgerDB updateTransactions: [[self.dateRowView dateRange] objectAtIndex: (int)coordinate.x]
                               andCID: [ledgerDB getCID: [[self.categoryColumnView categories] objectAtIndex: (int)coordinate.y]]
                            andAmount: [NSNumber numberWithDouble:[newAmount doubleValue]]];
-<<<<<<< HEAD
-        
-=======
->>>>>>> Delete unuse functions and classes
     }
     else {
         [ledgerDB insertBudget:[[self.dateRowView dateRange] objectAtIndex:(int)coordinate.x] andBudget:0];
         [ledgerDB insertTransactions: [[self.dateRowView dateRange] objectAtIndex:(int)coordinate.x]
                               andCID: [ledgerDB getCID:[[self.categoryColumnView categories] objectAtIndex:(int)coordinate.y]]
                            andAmount: [NSNumber numberWithDouble:[newAmount doubleValue]]];
-<<<<<<< HEAD
-   
-=======
->>>>>>> Delete unuse functions and classes
     }
     if ([ledgerDB succeed]) {
         [transaction setText:[NSString stringWithFormat:@"%.2f", [newAmount doubleValue]]];
