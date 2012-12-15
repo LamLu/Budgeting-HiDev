@@ -86,7 +86,6 @@
         [self setMenuDisplayed: true];
         [UIView animateWithDuration:0.5 animations:^
          {
-             //self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, 0, 0);
              self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, 50, 0);
              self.menuButton.frame = CGRectOffset(self.menuButton.frame, 50, 0);
          }completion: ^(BOOL finished)
@@ -101,6 +100,7 @@
 }
 
 -(void) closeMenu{
+<<<<<<< HEAD
     
     if ([self menuDisplayed])
     {
@@ -112,6 +112,17 @@
         }completion: ^(BOOL finished)
         {
         }];
+=======
+    if ([self menuDisplayed]) {
+        [self setMenuDisplayed: false];
+        [UIView animateWithDuration:.5 animations:^
+         {
+             self.currentViewController.view.frame = CGRectOffset(self.currentViewController.view.frame, -50, 0);
+             self.menuButton.frame = CGRectOffset(self.menuButton.frame, -50, 0);
+         }completion: ^(BOOL finished)
+         {
+         }];
+>>>>>>> Delete unuse functions and classes
         [UIView commitAnimations];
     }
 }

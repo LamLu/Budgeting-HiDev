@@ -25,8 +25,6 @@ static const double PAGE_BORDER_WIDTH = 1;
 @property (nonatomic, strong) NSMutableArray *dateArray;
 @property (nonatomic) LedgerDB *ledgerDB;
 
-
-@property (nonatomic, retain) LedgerScrollView *navigationView;
 @property (nonatomic, retain) LedgerSummaryTitleView *summaryTitleView;
 @property (nonatomic, retain) LedgerDateRowView *dateRowView;
 @property (nonatomic, retain) LedgerSummaryContentView *summaryContentView;

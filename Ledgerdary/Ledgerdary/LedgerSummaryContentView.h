@@ -17,6 +17,9 @@
 @property (weak, nonatomic) LedgerSummaryTitleView *summaryTitleView;
 @property (weak, nonatomic) LedgerDateRowView *dateRowView;
 @property (nonatomic) UIView *columnBackgroundView;
+@property (nonatomic) NSArray *totalArray;
+@property (nonatomic) NSArray *budgetArray;
+@property (nonatomic) NSArray *balanceArray;
 
 //@property (nonatomic, assign) LedgerDB *ledgerDB;
 

@@ -47,25 +47,18 @@
     
     //do NOT change this order, their position are depending on each other.
     //set the summary title pos
-    self.navigationView = [[LedgerScrollView alloc]
-                            initWithFrame: CGRectMake( 0,
-                                                       0,
-                                                       [LedgerCell getCellSize].width,
-                                                       [LedgerCell getCellSize].height * 2)
-                              andDatabase: ledgerDB];
-
     self.summaryTitleView = [[LedgerSummaryTitleView alloc]
-                            initWithFrame: CGRectMake( self.navigationView.frame.origin.x,
+                            initWithFrame: CGRectMake( 0,
                                                        screenHeight - [LedgerCell getCellSize].height * 3 - 18,
-                                                       [self.navigationView frame].size.width,
+                                                       [LedgerCell getCellSize].width,
                                                        [LedgerCell getCellSize].height * 3)
                               andDatabase: ledgerDB];
     
     self.dateRowView = [[LedgerDateRowView alloc]
-                            initWithFrame: CGRectMake( self.navigationView.frame.size.width,
-                                                       self.navigationView.frame.origin.y,
+                            initWithFrame: CGRectMake( self.summaryTitleView.frame.size.width,
+                                                       0,
                                                        screenWidth - [LedgerCell getCellSize].width,
-                                                       [self.navigationView frame].size.height)
+                                                       [LedgerCell getCellSize].height * 2)
                               andDatabase: ledgerDB
                                  andArray: [self dateArray]];
     
@@ -106,7 +99,6 @@
     }
     
     [self setOffsetToPos:tempP];
-    //[self.view addSubview:self.navigationView];
     [self.view addSubview:self.summaryTitleView];
     [self.view addSubview:self.dateRowView];
     [self.view addSubview:self.summaryContentView];
@@ -125,12 +117,15 @@
     
     int dIndex = [[dateFormat stringFromDate: date] integerValue] - 1;
     LedgerCell *cell = [[self.dateRowView subviews] objectAtIndex:dIndex];
-    CGPoint tempP = CGPointMake( cell.frame.origin.x - (self.dateRowView.frame.size.width - cellWidth) / 2, 0);
+
+    CGPoint tempP = CGPointMake(cell.frame.origin.x - (self.dateRowView.frame.size.width - cellWidth) / 2, 0);
     [self setOffsetToPos:tempP];
 }
 
-- (void) setOffsetToPos:(CGPoint) pos
-{
+- (void) setOffsetToPos:(CGPoint) pos {
+    if (pos.x < 0) {
+        pos.x = 0;
+    }
     [self.dateRowView setContentOffset:pos];
     [self.transactionView setContentOffset:CGPointMake(pos.x, [self.transactionView contentOffset].y)];
     [self.summaryContentView setContentOffset:pos];

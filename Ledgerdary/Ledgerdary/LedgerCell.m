@@ -136,13 +136,13 @@
             [datePickerControlBar setBarStyle:UIBarStyleBlack];
             [datePickerControlBar sizeToFit];
             
-            UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithTitle:nil style:0 target:nil action:nil];
+            //UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithTitle:nil style:0 target:nil action:nil];
             
             UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelDatePicker)];
             
             UIBarButtonItem *select = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleDone target:self action:@selector(doneDatePicker)];
             
-            [datePickerControlBar setItems:[NSArray arrayWithObjects:spacer, cancel, select, nil] animated:NO];
+            [datePickerControlBar setItems:[NSArray arrayWithObjects:cancel, select, nil] animated:NO];
             
             CGRect datePickerFrame = CGRectMake(0,datePickerControlBar.frame.origin.y + datePickerControlBar.frame.size.height,0,0);
             UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:datePickerFrame];
@@ -297,7 +297,7 @@
         if ([subview isKindOfClass:[UIDatePicker class]]) {
             NSDate *selectedDate = [(UIDatePicker*) subview date];
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MM"];
+            [dateFormat setDateFormat:@"yyyyMM"];
             if ( [[dateFormat stringFromDate: selectedDate] isEqualToString:[dateFormat stringFromDate: [[(LedgerDateRowView *)[self superview] dateRange] objectAtIndex:0]]]) {
                 LedgerContentViewController *ledgerPage = (LedgerContentViewController *)[[[self superview] superview]nextResponder];
                 [ledgerPage setOffsetAtDate:selectedDate];

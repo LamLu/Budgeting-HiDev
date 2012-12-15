@@ -13,6 +13,7 @@
     CGPoint todayPos;
 }
 @property (nonatomic) NSArray *dateRange;
+@property (nonatomic) NSArray *dateLabelArray;
 @property (nonatomic) CGPoint todayPos;
 
 - (id) initWithFrame:(CGRect)frame andDatabase: (LedgerDB *) aLedgerDB andArray:(NSMutableArray *) aDateRange;

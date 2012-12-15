@@ -10,7 +10,6 @@
 #import "LedgerContentViewController.h"
 
 @implementation LedgerTransactionView
-@synthesize transactionLongPressRecog;
 @synthesize rowBackgroundView;
 @synthesize columnBackgroundView;
 
@@ -34,75 +33,11 @@
         self.showsHorizontalScrollIndicator = false;
         self.showsVerticalScrollIndicator = false;
         [self setDelegate:self];
-        
-        //Adding UILongPressGestureRecognizer
-        self.transactionLongPressRecog = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addingTransaction)];
-        [self.transactionLongPressRecog setMinimumPressDuration:1];
-        //[self addGestureRecognizer:self.transactionLongPressRecog];
-        
+    
         //adding cells;
         [self reloadView];
     }
     return self;
-}
-
-- (void) addingTransaction{
-    if (self.transactionLongPressRecog.state != UIGestureRecognizerStateBegan) {
-        return;
-    }
-    CGPoint pt = [self.transactionLongPressRecog locationInView: self];
-    int cIndex = (int) (pt.y / (cellHeight - cellBorder * 2));
-    int dIndex = (int) (pt.x / (cellWidth - cellBorder * 2));
-     
-    if (cIndex < [[self.categoryColumnView categories] count] && dIndex < [[self.dateRowView dateRange] count]) {
-        UIAlertView *addingTransaction = [[UIAlertView alloc] init];
-        [addingTransaction setDelegate:self];
-        [addingTransaction setTitle: [NSString stringWithFormat:@"$ for %@ on \n%@",
-                                      [[self.categoryColumnView categories] objectAtIndex:cIndex],
-                                      [[[self.dateRowView subviews] objectAtIndex:dIndex] text]]];
-        [addingTransaction addButtonWithTitle:@"Cancel"];
-        [addingTransaction addButtonWithTitle:@"Done"];
-        
-        [addingTransaction setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [[addingTransaction textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDecimalPad];
-        [[addingTransaction textFieldAtIndex:0] setPlaceholder:@"0.00"];
-        [addingTransaction show];
-        CGPoint cellPt = CGPointMake([[self.dateRowView.subviews objectAtIndex:dIndex] frame].origin.x,
-                                     [[self.categoryColumnView.subviews objectAtIndex:cIndex] frame].origin.y);
-        LedgerCell *addedTransaction =
-        [[LedgerCell alloc]initWithPos:cellPt
-                               andText:[NSString stringWithFormat:@"0.00"]
-                           andProperty:TransactionCell];
-        [self addSubview:addedTransaction];
-    }
-    
-}
-
-- (void) addingTransaction: (CGPoint) pt{
-    int cIndex = (int) (pt.y / (cellHeight - cellBorder * 2));
-    int dIndex = (int) (pt.x / (cellWidth - cellBorder * 2));
-    
-    if (cIndex < [[self.categoryColumnView categories] count] && dIndex < [[self.dateRowView dateRange] count]) {
-        UIAlertView *addingTransaction = [[UIAlertView alloc] init];
-        [addingTransaction setDelegate:self];
-        [addingTransaction setTitle: [NSString stringWithFormat:@"$ for %@ on \n%@",
-                                      [[self.categoryColumnView categories] objectAtIndex:cIndex],
-                                      [[[self.dateRowView subviews] objectAtIndex:dIndex] text]]];
-        [addingTransaction addButtonWithTitle:@"Cancel"];
-        [addingTransaction addButtonWithTitle:@"Done"];
-        
-        [addingTransaction setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [[addingTransaction textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDecimalPad];
-        [[addingTransaction textFieldAtIndex:0] setPlaceholder:@"0.00"];
-        [addingTransaction show];
-        CGPoint cellPt = CGPointMake([[self.dateRowView.subviews objectAtIndex:dIndex] frame].origin.x,
-                                     [[self.categoryColumnView.subviews objectAtIndex:cIndex] frame].origin.y);
-        LedgerCell *addedTransaction =
-        [[LedgerCell alloc]initWithPos:cellPt
-                               andText:[NSString stringWithFormat:@"0.00"]
-                           andProperty:TransactionCell];
-        [self addSubview:addedTransaction];
-    }
 }
 
 - (void) updateTransaction: (LedgerCell *) transaction andNewAmount: (NSString *) newAmount {
@@ -113,14 +48,20 @@
         [ledgerDB updateTransactions: [[self.dateRowView dateRange] objectAtIndex: (int)coordinate.x]
                               andCID: [ledgerDB getCID: [[self.categoryColumnView categories] objectAtIndex: (int)coordinate.y]]
                            andAmount: [NSNumber numberWithDouble:[newAmount doubleValue]]];
+<<<<<<< HEAD
         
+=======
+>>>>>>> Delete unuse functions and classes
     }
     else {
         [ledgerDB insertBudget:[[self.dateRowView dateRange] objectAtIndex:(int)coordinate.x] andBudget:0];
         [ledgerDB insertTransactions: [[self.dateRowView dateRange] objectAtIndex:(int)coordinate.x]
                               andCID: [ledgerDB getCID:[[self.categoryColumnView categories] objectAtIndex:(int)coordinate.y]]
                            andAmount: [NSNumber numberWithDouble:[newAmount doubleValue]]];
+<<<<<<< HEAD
    
+=======
+>>>>>>> Delete unuse functions and classes
     }
     if ([ledgerDB succeed]) {
         [transaction setText:[NSString stringWithFormat:@"%.2f", [newAmount doubleValue]]];
@@ -197,37 +138,6 @@
     [self didChangeValueForKey:@"transaction_Update"];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"Done"]) {
-        NSArray *transactionViewArray = [self subviews];
-        LedgerCell *temp = [transactionViewArray objectAtIndex: [transactionViewArray count] - 1];
-        [temp setText: [NSString stringWithFormat:@"%.2f", [[[alertView textFieldAtIndex:0] text] doubleValue]]];
-        
-        //inserting data to the database
-        if ([[temp text] doubleValue] == 0) {
-            [temp removeFromSuperview];
-        }
-        else {
-            NSMutableArray *cateViewArray = [[NSMutableArray alloc] initWithArray:self.categoryColumnView.subviews];
-            [cateViewArray removeObjectAtIndex: [cateViewArray count] - 1];
-            int cIndex = [temp getIndexFor: CategoryCell];
-            int dIndex = [temp getIndexFor: DateCell];
-            
-            [self willChangeValueForKey:@"transaction_Update"];
-            [ledgerDB insertBudget:[[self.dateRowView dateRange] objectAtIndex:dIndex] andBudget:0];
-            [ledgerDB insertTransactions: [[self.dateRowView dateRange] objectAtIndex:dIndex]
-                                  andCID: [ledgerDB getCID:[[self.categoryColumnView categories] objectAtIndex:cIndex]]
-                               andAmount: [NSNumber numberWithDouble:[[temp text] doubleValue]]];
-            [self didChangeValueForKey:@"transaction_Update"];
-        }
-    }
-    else {
-        [[self.subviews objectAtIndex:[self.subviews count] - 1] removeFromSuperview];
-    }
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGPoint offset = [self contentOffset];
@@ -272,24 +182,6 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
    // NSLog(@"YEah");//[self reloadView];
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    NSUInteger tapCount = [touch tapCount];
-    
-    switch (tapCount) {
-        case 1:
-            break;
-        case 2:
-        {
-            CGPoint pt = [touch locationInView:self];
-            [self addingTransaction:pt];
-        }
-            break;
-        default :
-            break;
-    }
 }
 
 /*

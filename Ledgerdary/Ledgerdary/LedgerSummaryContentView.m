@@ -36,6 +36,9 @@
 
 - (void) updateBudget:(LedgerCell *) budgetCell andNewBudget:(NSNumber *) newBudget {
     int dIndex = [[self subviews] indexOfObject:budgetCell] / 3;
+    
+    [ledgerDB insertBudget: [self.dateRowView.dateRange objectAtIndex:dIndex]
+                 andBudget: [NSNumber numberWithDouble:[newBudget doubleValue]]];
     [ledgerDB updateBudget: [self.dateRowView.dateRange objectAtIndex:dIndex]
                  andBudget: [NSNumber numberWithDouble:[newBudget doubleValue]]];
     
